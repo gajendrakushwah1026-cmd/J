@@ -7,7 +7,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
-    <!-- Google AdSense Global Script (Your Real ID) -->
+    <!-- Google AdSense Global Script -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3849531167902850" crossorigin="anonymous"></script>
 
     <style>
@@ -42,7 +42,7 @@
         <input id="searchInput" type="text" placeholder="Search lessons..." class="w-full bg-white border border-gray-100 px-7 py-4 rounded-2xl text-md shadow-xl outline-none focus:ring-4 focus:ring-indigo-50 transition-all">
     </div>
 
-    <!-- YOUR REAL ADSENSE AD UNIT (NotJitu) -->
+    <!-- YOUR REAL ADSENSE AD UNIT -->
     <div class="ad-box">
         <p class="text-[9px] text-gray-300 font-bold tracking-widest mb-3 italic">ADVERTISEMENT</p>
         <ins class="adsbygoogle"
@@ -51,9 +51,7 @@
              data-ad-slot="7504780374"
              data-ad-format="auto"
              data-full-width-responsive="true"></ins>
-        <script>
-             (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
     </div>
 </section>
 
@@ -63,26 +61,42 @@
     <div id="videoGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 hidden"></div>
 </main>
 
-<footer class="mt-20 py-10 text-center opacity-40">
-    <p class="text-[10px] font-black tracking-[0.3em] uppercase">© 2025 JITU PREMIUM VAULT</p>
+<!-- Footer with Legal Links (Important for AdSense) -->
+<footer class="mt-20 py-10 text-center border-t border-gray-50">
+    <div class="flex flex-wrap justify-center gap-6 mb-6">
+        <button onclick="showLegal('about')" class="text-xs font-bold text-gray-400 hover:text-indigo-600 uppercase tracking-widest">About Us</button>
+        <button onclick="showLegal('privacy')" class="text-xs font-bold text-gray-400 hover:text-indigo-600 uppercase tracking-widest">Privacy Policy</button>
+        <button onclick="showLegal('contact')" class="text-xs font-bold text-gray-400 hover:text-indigo-600 uppercase tracking-widest">Contact Us</button>
+    </div>
+    <p class="text-[10px] font-black tracking-[0.3em] uppercase text-gray-300">© 2025 JITU PREMIUM VAULT</p>
 </footer>
 
 <!-- Modals -->
 <div id="modalOverlay" class="fixed inset-0 bg-gray-950/40 backdrop-blur-md hidden z-[100] items-center justify-center p-6">
+    <!-- Admin Login -->
     <div id="loginModal" class="bg-white rounded-3xl w-full max-w-xs p-8 shadow-2xl hidden">
         <h3 class="text-xl font-black mb-6 text-center">Admin Access</h3>
         <input id="passInput" type="password" placeholder="Pass Key" class="w-full bg-gray-50 border-0 p-4 rounded-2xl mb-6 text-center text-2xl font-black tracking-[0.3em] outline-none">
         <button onclick="tryLogin()" class="w-full btn-gradient text-white py-4 rounded-2xl font-bold">Verify</button>
     </div>
+
+    <!-- Add Video -->
     <div id="addModal" class="bg-white rounded-3xl w-full max-w-md p-10 shadow-2xl hidden">
         <h3 class="text-2xl font-black mb-6">Add Video</h3>
         <div class="space-y-4">
             <input id="vTitle" type="text" placeholder="Title" class="w-full bg-gray-50 p-4 rounded-xl outline-none">
-            <input id="vSub" type="text" placeholder="Subject (e.g. Physics)" class="w-full bg-gray-50 p-4 rounded-xl outline-none">
+            <input id="vSub" type="text" placeholder="Subject" class="w-full bg-gray-50 p-4 rounded-xl outline-none">
             <input id="vUrl" type="text" placeholder="YouTube URL" class="w-full bg-gray-50 p-4 rounded-xl outline-none">
             <button onclick="saveVideo()" class="w-full btn-gradient text-white py-4 rounded-xl font-bold uppercase tracking-widest">Save Now</button>
             <button onclick="closeModals()" class="w-full text-gray-400 text-[10px] font-bold mt-2">CLOSE</button>
         </div>
+    </div>
+
+    <!-- Legal Content Modal -->
+    <div id="legalModal" class="bg-white rounded-3xl w-full max-w-2xl p-8 shadow-2xl hidden max-h-[80vh] overflow-y-auto">
+        <h3 id="legalTitle" class="text-2xl font-black mb-4 text-indigo-600 uppercase italic"></h3>
+        <div id="legalBody" class="text-sm text-gray-600 leading-relaxed space-y-4"></div>
+        <button onclick="closeModals()" class="w-full btn-gradient text-white py-3 rounded-xl font-bold mt-8">I UNDERSTAND</button>
     </div>
 </div>
 
@@ -110,7 +124,7 @@ async function startup() {
         auth = getAuth(app);
         await signInAnonymously(auth);
         onAuthStateChanged(auth, user => { if(user) listenToCloud(); });
-    } catch(e) { console.error("Cloud Connection Error"); }
+    } catch(e) { console.error("Cloud Error"); }
 }
 
 function listenToCloud() {
@@ -128,7 +142,6 @@ window.tryLogin = () => {
     if(document.getElementById('passInput').value === PASS_KEY) {
         isAdmin = true;
         document.getElementById('addBtn').classList.remove('hidden');
-        document.getElementById('authText').innerText = "Logout Admin";
         closeModals();
         render();
     } else alert("Galat Key!");
@@ -144,14 +157,30 @@ window.saveVideo = async () => {
         const ref = collection(db, 'artifacts', COLLECTION_ID, 'public', 'data', 'videos');
         await addDoc(ref, { title, subject, url, ytId, createdAt: Date.now() });
         closeModals();
-        document.getElementById('vTitle').value = '';
-        document.getElementById('vSub').value = '';
-        document.getElementById('vUrl').value = '';
-    } catch(e) { alert("Save nahi ho paya."); }
+    } catch(e) { alert("Error saving."); }
 };
 
 window.deleteMe = async (id) => {
     if(confirm("Delete karna hai?")) await deleteDoc(doc(db, 'artifacts', COLLECTION_ID, 'public', 'data', 'videos', id));
+};
+
+window.showLegal = (type) => {
+    const title = document.getElementById('legalTitle');
+    const body = document.getElementById('legalBody');
+    document.getElementById('modalOverlay').classList.remove('hidden');
+    document.getElementById('modalOverlay').classList.add('flex');
+    document.getElementById('legalModal').classList.remove('hidden');
+
+    if(type === 'about') {
+        title.innerText = "About Jitu Vault";
+        body.innerHTML = "<p>JITU Premium Vault is a curated educational platform designed to provide high-quality learning resources to students. We organize the best educational content from YouTube to help you focus and learn effectively without distractions.</p>";
+    } else if(type === 'privacy') {
+        title.innerText = "Privacy Policy";
+        body.innerHTML = "<p>Your privacy is important to us. We do not collect personal data from our visitors. We use Google AdSense to serve ads, which may use cookies to show relevant content. By using this site, you agree to our use of these non-intrusive technologies.</p><p>We do not sell or share any user information.</p>";
+    } else if(type === 'contact') {
+        title.innerText = "Contact Us";
+        body.innerHTML = "<p>Have questions or suggestions? Reach out to us!</p><p><b>Email:</b> support@jitu-vault.com</p><p>We aim to respond to all inquiries within 48 hours.</p>";
+    }
 };
 
 window.setFilter = (s) => { activeFilter = s; render(); };
@@ -161,6 +190,7 @@ window.closeModals = () => {
     document.getElementById('modalOverlay').classList.add('hidden');
     document.getElementById('loginModal').classList.add('hidden');
     document.getElementById('addModal').classList.add('hidden');
+    document.getElementById('legalModal').classList.add('hidden');
 };
 
 function showModal(id) {
@@ -176,7 +206,7 @@ window.render = () => {
     
     const subs = ['All', ...new Set(videoList.map(v => v.subject))];
     filters.innerHTML = subs.map(s => `
-        <button onclick="setFilter('${s}')" class="px-5 py-2.5 rounded-2xl text-[10px] font-black transition-all border ${activeFilter === s ? 'bg-indigo-600 text-white border-indigo-600' : 'bg-white text-gray-400 border-gray-100'}">
+        <button onclick="setFilter('${s}')" class="px-5 py-2.5 rounded-2xl text-[10px] font-black transition-all border ${activeFilter === s ? 'bg-indigo-600 text-white' : 'bg-white text-gray-400 border-gray-100'}">
             ${s.toUpperCase()}
         </button>
     `).join('');
@@ -193,9 +223,7 @@ window.render = () => {
             <div class="p-6">
                 <h4 class="font-bold text-gray-900 line-clamp-2 h-10 mb-6 leading-tight text-xs">${v.title}</h4>
                 <div class="flex items-center justify-between">
-                    <a href="${v.url}" target="_blank" class="bg-indigo-50 text-indigo-600 px-5 py-2 rounded-xl text-[10px] font-black hover:bg-indigo-600 hover:text-white transition-all uppercase tracking-tighter">
-                        WATCH ▶
-                    </a>
+                    <a href="${v.url}" target="_blank" class="bg-indigo-50 text-indigo-600 px-5 py-2 rounded-xl text-[10px] font-black hover:bg-indigo-600 hover:text-white transition-all">WATCH ▶</a>
                     ${isAdmin ? `<button onclick="deleteMe('${v.id}')" class="w-8 h-8 rounded-xl bg-red-50 text-red-500 flex items-center justify-center text-xs">✕</button>` : ''}
                 </div>
             </div>
