@@ -23,58 +23,62 @@
         .premium-card {
             background: var(--surface);
             border: 1px solid rgba(0, 0, 0, 0.04);
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.03), 0 8px 10px -6px rgba(0, 0, 0, 0.03);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.03);
             transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .premium-card:hover {
-            transform: translateY(-12px) scale(1.01);
+            transform: translateY(-12px);
             box-shadow: 0 25px 50px -12px rgba(79, 70, 229, 0.12);
-            border-color: rgba(79, 70, 229, 0.1);
         }
         .btn-gradient {
             background: linear-gradient(135deg, var(--primary), var(--secondary));
-            transition: all 0.3s ease;
-        }
-        .btn-gradient:hover {
-            filter: brightness(1.1);
-            box-shadow: 0 10px 20px -5px rgba(79, 70, 229, 0.4);
         }
         .glass-nav {
             background: rgba(255, 255, 255, 0.85);
             backdrop-filter: blur(15px);
             border-bottom: 1px solid rgba(0, 0, 0, 0.05);
         }
-        .search-container {
-            transition: all 0.4s ease;
-        }
-        .search-container:focus-within {
-            transform: scale(1.02);
+        /* Fix for scrollable bar to not block clicks */
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+            position: relative;
+            z-index: 10;
         }
         .no-scrollbar::-webkit-scrollbar { display: none; }
-        .text-glow {
-            text-shadow: 0 0 20px rgba(79, 70, 229, 0.2);
+        
+        .filter-btn {
+            transition: all 0.2s ease;
+            cursor: pointer !important;
+            position: relative;
+            z-index: 20;
         }
-        @keyframes subtle-float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-5px); }
+        .filter-btn:active { transform: scale(0.95); }
+
+        .watch-btn {
+            background: rgba(79, 70, 229, 0.08);
+            color: #4f46e5;
+            transition: all 0.3s ease;
         }
-        .float-anim { animation: subtle-float 4s ease-in-out infinite; }
+        .watch-btn:hover {
+            background: #4f46e5;
+            color: white;
+            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+        }
     </style>
 </head>
 <body class="min-h-screen pb-20">
 
-<!-- Top Motivation Header -->
 <div class="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 py-2 px-4">
     <p class="text-white text-center text-[11px] md:text-xs font-bold tracking-widest uppercase italic">
-        "The future belongs to those who believe in the beauty of their dreams."
+        "The Future Belongs To Those Who Believe In The Beauty Of Their Dreams."
     </p>
 </div>
 
-<!-- Navigation -->
 <nav class="glass-nav sticky top-0 z-50 px-6 py-4">
     <div class="max-w-6xl mx-auto flex items-center justify-between">
-        <div class="flex items-center gap-4 group cursor-pointer">
-            <div class="w-11 h-11 btn-gradient rounded-2xl flex items-center justify-center text-white font-black text-2xl italic shadow-lg transform group-hover:rotate-6 transition-transform">J</div>
+        <div class="flex items-center gap-4 group">
+            <div class="w-11 h-11 btn-gradient rounded-2xl flex items-center justify-center text-white font-black text-2xl italic shadow-lg">J</div>
             <div class="flex flex-col">
                 <span class="text-2xl font-black tracking-tighter text-gray-900 leading-none">JITU</span>
                 <span class="text-[9px] font-bold text-indigo-500 tracking-[0.2em] uppercase">Premium Vault</span>
@@ -82,89 +86,60 @@
         </div>
         
         <div class="flex items-center gap-3">
-            <button id="addBtn" onclick="openAddModal()" class="hidden btn-gradient text-white px-6 py-2.5 rounded-2xl text-xs font-bold shadow-lg shadow-indigo-100 transform active:scale-95 transition-all">
+            <button id="addBtn" onclick="openAddModal()" class="hidden btn-gradient text-white px-6 py-2.5 rounded-2xl text-xs font-bold shadow-lg shadow-indigo-100">
                 + Add Content
             </button>
-            <button id="authBtn" onclick="openLoginModal()" class="bg-gray-50 text-gray-700 border border-gray-100 px-5 py-2.5 rounded-2xl text-xs font-bold hover:bg-white hover:shadow-md transition-all flex items-center gap-2">
+            <button id="authBtn" onclick="openLoginModal()" class="bg-gray-50 text-gray-700 border border-gray-100 px-5 py-2.5 rounded-2xl text-xs font-bold hover:bg-white transition-all flex items-center gap-2">
                 <span id="authIcon">👤</span> <span id="authText">Admin</span>
             </button>
         </div>
     </div>
 </nav>
 
-<!-- Minimal Hero & Search -->
-<section class="max-w-4xl mx-auto px-6 pt-16 mb-16 text-center">
+<section class="max-w-4xl mx-auto px-6 pt-16 mb-12 text-center">
     <h2 class="text-4xl md:text-6xl font-black text-gray-900 mb-8 tracking-tight leading-tight">
-        Knowledge is <span class="text-indigo-600 text-glow">Power.</span>
+        Knowledge is <span class="text-indigo-600">Power.</span>
     </h2>
-    <div class="search-container relative max-w-2xl mx-auto">
+    <div class="relative max-w-2xl mx-auto">
         <input id="searchInput" type="text" placeholder="Search your vault..." 
             class="w-full bg-white border border-gray-100 px-8 py-6 rounded-[2.5rem] text-lg shadow-xl outline-none focus:ring-4 focus:ring-indigo-50 transition-all text-gray-700">
-        <div class="absolute right-7 top-1/2 -translate-y-1/2 bg-gray-50 w-12 h-12 flex items-center justify-center rounded-full text-xl shadow-inner">🔍</div>
+        <div class="absolute right-7 top-1/2 -translate-y-1/2 text-xl">🔍</div>
     </div>
 </section>
 
-<!-- Main Grid Container -->
 <main class="max-w-7xl mx-auto px-6">
-    <!-- Categories -->
-    <div id="filterBar" class="flex gap-3 mb-12 overflow-x-auto no-scrollbar pb-2 justify-start md:justify-center"></div>
+    <!-- Category Filter Bar - Z-index fix -->
+    <div id="filterBar" class="flex gap-3 mb-12 overflow-x-auto no-scrollbar pb-4 justify-start md:justify-center relative z-20"></div>
 
-    <!-- Loading State -->
     <div id="loadingUI" class="flex flex-col items-center py-24">
         <div class="w-10 h-10 border-4 border-indigo-600 border-t-transparent rounded-full animate-spin"></div>
-        <p class="mt-6 text-xs font-bold text-gray-400 tracking-[0.3em] uppercase">Connecting to Database</p>
+        <p class="mt-6 text-xs font-bold text-gray-400 tracking-[0.3em] uppercase">Syncing Cloud</p>
     </div>
 
-    <!-- Video Grid -->
     <div id="videoGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 hidden"></div>
 
-    <!-- Empty State -->
     <div id="emptyUI" class="hidden text-center py-24 bg-white/50 rounded-[3rem] border-2 border-dashed border-gray-100">
-        <div class="text-5xl mb-4 grayscale opacity-40">🗃️</div>
-        <p class="text-gray-400 font-bold text-lg">Your vault is currently empty.</p>
-        <p class="text-gray-300 text-sm">Add some videos to get started.</p>
+        <p class="text-gray-400 font-bold text-lg">Vault is empty.</p>
     </div>
 </main>
 
-<!-- Modern Modal Overlay -->
+<!-- Modals -->
 <div id="modalOverlay" class="fixed inset-0 bg-gray-950/40 backdrop-blur-md hidden z-[100] items-center justify-center p-6 opacity-0 transition-opacity duration-300">
-    <!-- Login Modal -->
-    <div id="loginModal" class="bg-white rounded-[3rem] w-full max-w-xs p-10 shadow-2xl hidden transform translate-y-4 transition-transform duration-300">
-        <div class="w-16 h-16 bg-indigo-50 text-indigo-600 rounded-3xl flex items-center justify-center text-3xl mb-6 mx-auto">🔐</div>
-        <h3 class="text-2xl font-black mb-2 text-center text-gray-900">Unlock Vault</h3>
-        <p class="text-center text-gray-400 text-xs font-medium mb-8">System Admin verification required.</p>
-        <input id="passInput" type="password" placeholder="Pass Key" class="w-full bg-gray-50 border-0 p-5 rounded-2xl mb-6 text-center text-2xl font-black tracking-[0.5em] focus:ring-2 focus:ring-indigo-500 outline-none">
-        <div class="flex flex-col gap-3">
-            <button onclick="tryLogin()" class="w-full btn-gradient text-white py-5 rounded-2xl font-bold shadow-xl">Confirm Unlock</button>
-            <button onclick="closeModals()" class="w-full py-3 text-gray-400 font-bold text-sm">Cancel</button>
-        </div>
+    <div id="loginModal" class="bg-white rounded-[3rem] w-full max-w-xs p-10 shadow-2xl hidden">
+        <h3 class="text-2xl font-black mb-6 text-center">Unlock Vault</h3>
+        <input id="passInput" type="password" placeholder="Pass Key" class="w-full bg-gray-50 border-0 p-5 rounded-2xl mb-6 text-center text-2xl font-black tracking-[0.5em] outline-none">
+        <button onclick="tryLogin()" class="w-full btn-gradient text-white py-5 rounded-2xl font-bold shadow-xl">Verify</button>
+        <button onclick="closeModals()" class="w-full mt-4 text-gray-400 text-sm">Cancel</button>
     </div>
 
-    <!-- Add Modal -->
-    <div id="addModal" class="bg-white rounded-[3rem] w-full max-w-md p-10 shadow-2xl hidden transform translate-y-4 transition-transform duration-300">
-        <div class="flex items-center gap-4 mb-8">
-            <div class="w-12 h-12 bg-indigo-600 text-white rounded-2xl flex items-center justify-center text-xl">📁</div>
-            <h3 class="text-2xl font-black text-gray-900">Add New Video</h3>
-        </div>
+    <div id="addModal" class="bg-white rounded-[3rem] w-full max-w-md p-10 shadow-2xl hidden">
+        <h3 class="text-2xl font-black mb-8">Add New Video</h3>
         <div class="space-y-5">
-            <div>
-                <label class="text-[10px] font-black text-gray-400 uppercase tracking-widest ml-1 mb-2 block">Video Title</label>
-                <input id="vTitle" type="text" placeholder="Title of the lecture" class="w-full bg-gray-50 border-0 p-5 rounded-2xl outline-none focus:ring-2 focus:ring-indigo-100">
-            </div>
-            <div class="grid grid-cols-2 gap-4">
-                <div>
-                    <label class="text-[10px] font-black text-gray-400 uppercase tracking-widest ml-1 mb-2 block">Subject</label>
-                    <input id="vSub" type="text" placeholder="Physics" class="w-full bg-gray-50 border-0 p-5 rounded-2xl outline-none focus:ring-2 focus:ring-indigo-100">
-                </div>
-                <div>
-                    <label class="text-[10px] font-black text-gray-400 uppercase tracking-widest ml-1 mb-2 block">YouTube Link</label>
-                    <input id="vUrl" type="text" placeholder="Link" class="w-full bg-gray-50 border-0 p-5 rounded-2xl outline-none focus:ring-2 focus:ring-indigo-100">
-                </div>
-            </div>
-            <div class="pt-6">
-                <button id="saveBtn" onclick="saveVideo()" class="w-full btn-gradient text-white py-5 rounded-2xl font-black shadow-xl shadow-indigo-100">SAVE TO CLOUD</button>
-                <button onclick="closeModals()" class="w-full mt-4 text-gray-400 text-xs font-bold">DISCARD</button>
-            </div>
+            <input id="vTitle" type="text" placeholder="Video Title" class="w-full bg-gray-50 border-0 p-5 rounded-2xl outline-none">
+            <input id="vSub" type="text" placeholder="Subject (e.g. Physics)" class="w-full bg-gray-50 border-0 p-5 rounded-2xl outline-none">
+            <input id="vUrl" type="text" placeholder="YouTube URL" class="w-full bg-gray-50 border-0 p-5 rounded-2xl outline-none">
+            <button id="saveBtn" onclick="saveVideo()" class="w-full btn-gradient text-white py-5 rounded-2xl font-black shadow-xl">SAVE VIDEO</button>
+            <button onclick="closeModals()" class="w-full mt-2 text-gray-400 text-xs font-bold uppercase tracking-widest">Discard</button>
         </div>
     </div>
 </div>
@@ -185,7 +160,7 @@ const firebaseConfig = {
 };
 
 let db, auth, videoList = [], isAdmin = false, activeFilter = 'All';
-const PASS_KEY = "Jitu9027", COLLECTION_ID = "jitu_ultra_premium_v1";
+const PASS_KEY = "Jitu9027", COLLECTION_ID = "jitu_ultra_premium_v2";
 
 async function startup() {
     try {
@@ -194,7 +169,7 @@ async function startup() {
         auth = getAuth(app);
         await signInAnonymously(auth);
         onAuthStateChanged(auth, user => { if(user) listenToCloud(); });
-    } catch(e) { console.error("Database Connection Error"); }
+    } catch(e) { console.error("Cloud Error"); }
 }
 
 function listenToCloud() {
@@ -213,18 +188,17 @@ window.tryLogin = () => {
         isAdmin = true;
         document.getElementById('addBtn').classList.remove('hidden');
         document.getElementById('authText').innerText = "Logout Admin";
-        document.getElementById('authIcon').innerText = "🛡️";
         closeModals();
         render();
-    } else alert("Access Denied: Incorrect Admin Key");
+    } else alert("Invalid Key");
 };
 
 window.saveVideo = async () => {
     const title = document.getElementById('vTitle').value;
-    const subject = document.getElementById('vSub').value || 'General';
+    const subject = document.getElementById('vSub').value || 'Other';
     const url = document.getElementById('vUrl').value;
     const ytId = url.match(/(?:v=|\/|embed\/|youtu.be\/)([0-9A-Za-z_-]{11})/)?.[1];
-    if(!title || !ytId) return alert("Sahi details bharein!");
+    if(!title || !ytId) return alert("Fill all details!");
     
     try {
         const ref = collection(db, 'artifacts', COLLECTION_ID, 'public', 'data', 'videos');
@@ -233,18 +207,20 @@ window.saveVideo = async () => {
         document.getElementById('vTitle').value = '';
         document.getElementById('vSub').value = '';
         document.getElementById('vUrl').value = '';
-    } catch(e) { alert("Cloud Storage Error"); }
+    } catch(e) { alert("Error saving video"); }
 };
 
 window.deleteMe = async (id) => {
-    if(confirm("Confirm deletion? This cannot be undone.")) {
-        await deleteDoc(doc(db, 'artifacts', COLLECTION_ID, 'public', 'data', 'videos', id));
-    }
+    if(confirm("Delete this?")) await deleteDoc(doc(db, 'artifacts', COLLECTION_ID, 'public', 'data', 'videos', id));
+};
+
+window.setFilter = (s) => {
+    activeFilter = s;
+    render();
 };
 
 window.openLoginModal = () => isAdmin ? location.reload() : showModal('loginModal');
 window.openAddModal = () => showModal('addModal');
-
 window.closeModals = () => {
     const overlay = document.getElementById('modalOverlay');
     overlay.style.opacity = '0';
@@ -258,14 +234,10 @@ window.closeModals = () => {
 
 function showModal(id) {
     const overlay = document.getElementById('modalOverlay');
-    const modal = document.getElementById(id);
     overlay.classList.remove('hidden');
     overlay.classList.add('flex');
-    modal.classList.remove('hidden');
-    setTimeout(() => {
-        overlay.style.opacity = '1';
-        modal.classList.remove('translate-y-4');
-    }, 10);
+    document.getElementById(id).classList.remove('hidden');
+    setTimeout(() => overlay.style.opacity = '1', 10);
 }
 
 window.render = () => {
@@ -273,10 +245,9 @@ window.render = () => {
     const filters = document.getElementById('filterBar');
     const search = document.getElementById('searchInput').value.toLowerCase();
     
-    // Smooth Category Pills
     const subs = ['All', ...new Set(videoList.map(v => v.subject))];
     filters.innerHTML = subs.map(s => `
-        <button onclick="activeFilter='${s}';render()" class="px-7 py-3 rounded-[1.2rem] text-xs font-black transition-all ${activeFilter === s ? 'bg-indigo-600 text-white shadow-xl shadow-indigo-100 scale-105' : 'bg-white text-gray-400 hover:text-indigo-600'}">
+        <button onclick="setFilter('${s}')" class="filter-btn px-7 py-3 rounded-[1.2rem] text-xs font-black shadow-sm ${activeFilter === s ? 'bg-indigo-600 text-white shadow-indigo-100' : 'bg-white text-gray-400 hover:text-indigo-600 border border-gray-100'}">
             ${s.toUpperCase()}
         </button>
     `).join('');
@@ -287,23 +258,18 @@ window.render = () => {
     container.innerHTML = filtered.map(v => `
         <div class="premium-card rounded-[2.8rem] overflow-hidden group">
             <div class="relative overflow-hidden">
-                <img src="https://img.youtube.com/vi/${v.ytId}/maxresdefault.jpg" onerror="this.src='https://img.youtube.com/vi/${v.ytId}/mqdefault.jpg'" class="w-full aspect-video object-cover transition-transform duration-700 group-hover:scale-110">
-                <div class="absolute inset-0 bg-indigo-900/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                <div class="absolute top-4 left-4 bg-white/95 backdrop-blur-md px-4 py-1.5 rounded-2xl text-[10px] font-black text-indigo-600 uppercase tracking-widest shadow-sm">
+                <img src="https://img.youtube.com/vi/${v.ytId}/mqdefault.jpg" class="w-full aspect-video object-cover group-hover:scale-105 transition-transform duration-500">
+                <div class="absolute top-4 left-4 bg-white/95 px-4 py-1.5 rounded-2xl text-[10px] font-black text-indigo-600 uppercase tracking-widest shadow-sm">
                     ${v.subject}
                 </div>
             </div>
             <div class="p-8">
-                <h4 class="font-bold text-gray-900 line-clamp-2 h-12 mb-6 leading-relaxed group-hover:text-indigo-600 transition-colors">${v.title}</h4>
+                <h4 class="font-bold text-gray-900 line-clamp-2 h-12 mb-6 leading-relaxed">${v.title}</h4>
                 <div class="flex items-center justify-between">
-                    <a href="${v.url}" target="_blank" class="text-xs font-black text-indigo-600 flex items-center gap-1 group/link">
-                        WATCH NOW <span class="group-hover/link:translate-x-1 transition-transform">→</span>
+                    <a href="${v.url}" target="_blank" class="watch-btn px-6 py-2.5 rounded-xl text-xs font-black flex items-center gap-2">
+                        WATCH NOW <span>▶</span>
                     </a>
-                    ${isAdmin ? `
-                        <button onclick="deleteMe('${v.id}')" class="w-10 h-10 rounded-2xl bg-red-50 text-red-500 flex items-center justify-center hover:bg-red-500 hover:text-white transition-all">✕</button>
-                    ` : `
-                        <div class="w-10 h-10 rounded-2xl bg-gray-50 flex items-center justify-center text-gray-200">★</div>
-                    `}
+                    ${isAdmin ? `<button onclick="deleteMe('${v.id}')" class="w-10 h-10 rounded-2xl bg-red-50 text-red-500 flex items-center justify-center hover:bg-red-500 hover:text-white transition-all">✕</button>` : ''}
                 </div>
             </div>
         </div>
@@ -314,4 +280,4 @@ document.getElementById('searchInput').addEventListener('input', render);
 startup();
 </script>
 </body>
-</html>
+    </html>
