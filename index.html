@@ -1,36 +1,32 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
+    <!-- ✅ MONETAG VERIFICATION START -->
+    <meta name="monetag" content="df236848adc2c25a7ddffd8050539eaf">
+    <!-- ✅ MONETAG VERIFICATION END -->
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
-    <!-- ✅ MONETAG VERIFICATION TAG -->
-    <meta name="monetag" content="df236848adc2c25a7ddffd8050539eaf">
-
     <title>JITU | Ultra Premium Vault</title>
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
     <style>
-        :root { --primary: #4f46e5; --secondary: #7c3aed; --accent: #ec4899; --surface: #ffffff; --bg: #fcfcfd; }
-        body { font-family: 'Outfit', sans-serif; background-color: var(--bg); color: #1e293b; letter-spacing: -0.01em; }
-        .premium-card { background: var(--surface); border: 1px solid rgba(0, 0, 0, 0.04); box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.03); transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
-        .premium-card:hover { transform: translateY(-12px); box-shadow: 0 25px 50px -12px rgba(79, 70, 229, 0.12); }
+        :root { --primary: #4f46e5; --secondary: #7c3aed; --bg: #fcfcfd; }
+        body { font-family: 'Outfit', sans-serif; background-color: var(--bg); color: #1e293b; }
+        .premium-card { background: white; border: 1px solid rgba(0, 0, 0, 0.04); transition: all 0.5s ease; }
+        .premium-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px -10px rgba(79, 70, 229, 0.15); }
         .btn-gradient { background: linear-gradient(135deg, var(--primary), var(--secondary)); }
         .glass-nav { background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(15px); border-bottom: 1px solid rgba(0, 0, 0, 0.05); }
         .no-scrollbar::-webkit-scrollbar { display: none; }
-        .watch-btn { background: rgba(79, 70, 229, 0.08); color: #4f46e5; transition: all 0.3s ease; }
-        .watch-btn:hover { background: #4f46e5; color: white; box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3); }
     </style>
 </head>
 <body class="min-h-screen pb-20">
 
-<div class="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 py-2 px-4 text-center">
-    <p class="text-white text-[11px] md:text-xs font-bold tracking-widest uppercase italic">"Knowledge is the only wealth that grows when shared."</p>
-</div>
-
 <nav class="glass-nav sticky top-0 z-50 px-6 py-4">
     <div class="max-w-6xl mx-auto flex items-center justify-between">
-        <div class="flex items-center gap-4 group cursor-pointer" onclick="location.reload()">
+        <div class="flex items-center gap-4 cursor-pointer" onclick="location.reload()">
             <div class="w-11 h-11 btn-gradient rounded-2xl flex items-center justify-center text-white font-black text-2xl italic shadow-lg">J</div>
             <div class="flex flex-col">
                 <span class="text-2xl font-black tracking-tighter text-gray-900 leading-none">JITU</span>
@@ -38,42 +34,40 @@
             </div>
         </div>
         <div class="flex items-center gap-3">
-            <button id="addBtn" onclick="openAddModal()" class="hidden btn-gradient text-white px-6 py-2.5 rounded-2xl text-xs font-bold shadow-lg shadow-indigo-100">+ Add Content</button>
-            <button id="authBtn" onclick="openLoginModal()" class="bg-gray-50 text-gray-700 border border-gray-100 px-5 py-2.5 rounded-2xl text-xs font-bold hover:bg-white transition-all flex items-center gap-2">👤 <span id="authText">Admin</span></button>
+            <button id="addBtn" onclick="openAddModal()" class="hidden btn-gradient text-white px-6 py-2.5 rounded-2xl text-xs font-bold shadow-lg">+ Add Content</button>
+            <button onclick="openLoginModal()" class="bg-gray-50 text-gray-700 border border-gray-100 px-5 py-2.5 rounded-2xl text-xs font-bold hover:bg-white transition-all flex items-center gap-2">👤 Admin</button>
         </div>
     </div>
 </nav>
 
 <section class="max-w-4xl mx-auto px-6 pt-16 mb-12 text-center">
-    <h2 class="text-4xl md:text-6xl font-black text-gray-900 mb-8 tracking-tight leading-tight">Study <span class="text-indigo-600">Smarter.</span></h2>
+    <h2 class="text-4xl md:text-6xl font-black text-gray-900 mb-8 tracking-tight">Access Your <span class="text-indigo-600">Vault.</span></h2>
     <div class="relative max-w-2xl mx-auto">
-        <input id="searchInput" type="text" placeholder="Search your vault..." class="w-full bg-white border border-gray-100 px-8 py-6 rounded-[2.5rem] text-lg shadow-xl outline-none focus:ring-4 focus:ring-indigo-50 transition-all text-gray-700">
-        <div class="absolute right-7 top-1/2 -translate-y-1/2 text-xl">🔍</div>
+        <input id="searchInput" type="text" placeholder="Search resources..." class="w-full bg-white border border-gray-100 px-8 py-6 rounded-[2.5rem] text-lg shadow-xl outline-none focus:ring-4 focus:ring-indigo-50 transition-all">
     </div>
 </section>
 
 <main class="max-w-7xl mx-auto px-6">
     <div id="filterBar" class="flex gap-3 mb-12 overflow-x-auto no-scrollbar pb-4 justify-start md:justify-center relative z-20"></div>
-    <div id="loadingUI" class="flex flex-col items-center py-24"><div class="w-10 h-10 border-4 border-indigo-600 border-t-transparent rounded-full animate-spin"></div></div>
+    <div id="loadingUI" class="text-center py-24 text-gray-400 font-bold uppercase tracking-widest animate-pulse">Syncing Cloud...</div>
     <div id="videoGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 hidden"></div>
-    <div id="emptyUI" class="hidden text-center py-24 bg-white/50 rounded-[3rem] border-2 border-dashed border-gray-100"><p class="text-gray-400 font-bold text-lg">No content found.</p></div>
 </main>
 
 <!-- Modals -->
 <div id="modalOverlay" class="fixed inset-0 bg-gray-950/40 backdrop-blur-md hidden z-[100] items-center justify-center p-6 opacity-0 transition-opacity duration-300">
-    <div id="loginModal" class="bg-white rounded-[3rem] w-full max-w-xs p-10 shadow-2xl hidden">
-        <h3 class="text-2xl font-black mb-6 text-center">Unlock Admin</h3>
-        <input id="passInput" type="password" placeholder="Pass Key" class="w-full bg-gray-50 border-0 p-5 rounded-2xl mb-6 text-center text-2xl font-black outline-none tracking-widest">
-        <button onclick="tryLogin()" class="w-full btn-gradient text-white py-5 rounded-2xl font-bold">Verify</button>
+    <div id="loginModal" class="bg-white rounded-[3rem] w-full max-w-xs p-10 hidden">
+        <h3 class="text-xl font-bold mb-6 text-center">Admin Access</h3>
+        <input id="passInput" type="password" placeholder="Pass Key" class="w-full bg-gray-50 p-5 rounded-2xl mb-4 text-center text-xl font-black border-0 outline-none">
+        <button onclick="tryLogin()" class="w-full btn-gradient text-white py-5 rounded-2xl font-bold shadow-lg">Verify</button>
     </div>
-    <div id="addModal" class="bg-white rounded-[3rem] w-full max-w-md p-10 shadow-2xl hidden">
-        <h3 class="text-2xl font-black mb-8">Add New Content</h3>
+    <div id="addModal" class="bg-white rounded-[3rem] w-full max-w-md p-10 hidden">
+        <h3 class="text-2xl font-bold mb-6">Add New Video</h3>
         <div class="space-y-4">
-            <input id="vTitle" type="text" placeholder="Title" class="w-full bg-gray-50 border-0 p-5 rounded-2xl outline-none">
-            <input id="vSub" type="text" placeholder="Subject" class="w-full bg-gray-50 border-0 p-5 rounded-2xl outline-none">
-            <input id="vUrl" type="text" placeholder="YouTube URL" class="w-full bg-gray-50 border-0 p-5 rounded-2xl outline-none">
-            <button onclick="saveVideo()" class="w-full btn-gradient text-white py-5 rounded-2xl font-black">SAVE VIDEO</button>
-            <button onclick="closeModals()" class="w-full text-gray-400 text-xs font-bold">CANCEL</button>
+            <input id="vTitle" type="text" placeholder="Title" class="w-full bg-gray-50 p-4 rounded-xl outline-none">
+            <input id="vSub" type="text" placeholder="Subject" class="w-full bg-gray-50 p-4 rounded-xl outline-none">
+            <input id="vUrl" type="text" placeholder="YouTube Link" class="w-full bg-gray-50 p-4 rounded-xl outline-none">
+            <button onclick="saveVideo()" class="w-full btn-gradient text-white py-4 rounded-xl font-bold">SAVE TO CLOUD</button>
+            <button onclick="closeModals()" class="w-full text-gray-400 text-xs mt-2">CANCEL</button>
         </div>
     </div>
 </div>
@@ -114,8 +108,8 @@ function listen() {
 window.tryLogin = () => {
     if(document.getElementById('passInput').value === PASS_KEY) {
         isAdmin = true; document.getElementById('addBtn').classList.remove('hidden');
-        document.getElementById('authText').innerText = "Logout"; closeModals(); render();
-    } else alert("Wrong!");
+        closeModals(); render();
+    } else alert("Wrong Key");
 };
 
 window.saveVideo = async () => {
@@ -135,7 +129,7 @@ window.openLoginModal = () => isAdmin ? location.reload() : showModal('loginModa
 window.openAddModal = () => showModal('addModal');
 window.closeModals = () => {
     document.getElementById('modalOverlay').style.opacity = '0';
-    setTimeout(() => { document.getElementById('modalOverlay').classList.add('hidden'); }, 300);
+    setTimeout(() => document.getElementById('modalOverlay').classList.add('hidden'), 300);
 };
 
 function showModal(id) {
@@ -143,7 +137,7 @@ function showModal(id) {
     document.getElementById('modalOverlay').classList.add('flex');
     document.getElementById('loginModal').classList.toggle('hidden', id !== 'loginModal');
     document.getElementById('addModal').classList.toggle('hidden', id !== 'addModal');
-    setTimeout(() => { document.getElementById('modalOverlay').style.opacity = '1'; }, 10);
+    setTimeout(() => document.getElementById('modalOverlay').style.opacity = '1', 10);
 }
 
 window.render = () => {
@@ -158,16 +152,14 @@ window.render = () => {
     `).join('');
 
     const filtered = videoList.filter(v => (activeFilter === 'All' || v.subject === activeFilter) && v.title.toLowerCase().includes(search));
-    document.getElementById('emptyUI').classList.toggle('hidden', filtered.length > 0);
-
     container.innerHTML = filtered.map(v => `
-        <div class="premium-card rounded-[2.8rem] overflow-hidden group">
+        <div class="premium-card rounded-[2.5rem] overflow-hidden">
             <img src="https://img.youtube.com/vi/${v.ytId}/mqdefault.jpg" class="w-full aspect-video object-cover">
             <div class="p-8">
-                <h4 class="font-bold text-gray-900 mb-6">${v.title}</h4>
+                <h4 class="font-bold text-gray-900 mb-6 line-clamp-2 h-12">${v.title}</h4>
                 <div class="flex items-center justify-between">
-                    <a href="${v.url}" target="_blank" class="watch-btn px-6 py-2.5 rounded-xl text-xs font-black">WATCH NOW ▶</a>
-                    ${isAdmin ? `<button onclick="deleteMe('${v.id}')" class="text-red-500">✕</button>` : ''}
+                    <a href="${v.url}" target="_blank" class="bg-indigo-50 text-indigo-600 px-6 py-2.5 rounded-xl text-xs font-black hover:bg-indigo-600 hover:text-white transition-all">WATCH NOW</a>
+                    ${isAdmin ? `<button onclick="deleteMe('${v.id}')" class="text-red-400">✕</button>` : ''}
                 </div>
             </div>
         </div>
@@ -177,8 +169,6 @@ window.render = () => {
 document.getElementById('searchInput').addEventListener('input', render);
 startup();
 </script>
-
-<!-- ✅ AGAR MONETAG VERIFY HO GAYE TO SMART TAG SCRIPT YAHAN PASTE KAREIN -->
 
 </body>
 </html>
