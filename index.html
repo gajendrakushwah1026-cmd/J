@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>JITU | Premium Education Resources</title>
 
-    <!-- Google AdSense Main Script -->
+    <!-- Google AdSense Main Script (Line 12) -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3849531167902850" crossorigin="anonymous"></script>
 
     <script src="https://cdn.tailwindcss.com"></script>
@@ -13,7 +13,7 @@
     
     <style>
         :root { --pw-blue: #5a4bda; --bg: #f8f9fd; }
-        body { font-family: 'Outfit', sans-serif; background-color: var(--bg); color: #1e2937; margin: 0; }
+        body { font-family: 'Outfit', sans-serif; background-color: var(--bg); color: #1e2937; margin: 0; overflow-x: hidden; }
         
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
@@ -21,56 +21,91 @@
         .sub-pill.active { background: var(--pw-blue); color: white; box-shadow: 0 10px 15px -3px rgba(90, 75, 218, 0.3); transform: translateY(-2px); }
         .glass-nav { background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(10px); border-bottom: 1px solid #eef2f6; }
         
-        .video-card { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); border: 1px solid #f1f5f9; display: flex; flex-direction: column; background: white; border-radius: 24px; overflow: hidden; }
-        .video-card:hover { transform: translateY(-8px); border-color: var(--pw-blue); box-shadow: 0 25px 30px -10px rgba(90, 75, 218, 0.15); }
+        .video-card { transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); border: 1px solid #f1f5f9; display: flex; flex-direction: column; background: white; border-radius: 28px; overflow: hidden; }
+        .video-card:hover { transform: translateY(-12px); border-color: var(--pw-blue); box-shadow: 0 30px 40px -15px rgba(90, 75, 218, 0.2); }
         
-        .watch-btn { background: linear-gradient(135deg, #5a4bda 0%, #4338ca 100%); transition: all 0.2s; }
-        .watch-btn:hover { filter: brightness(1.1); transform: scale(1.02); }
+        .watch-btn { background: linear-gradient(135deg, #5a4bda 0%, #4338ca 100%); transition: all 0.3s; }
+        .watch-btn:hover { filter: brightness(1.2); transform: scale(1.05); }
 
         .welcome-gradient {
             background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%);
+        }
+
+        /* Center Loader Styling */
+        #globalLoader {
+            position: fixed;
+            inset: 0;
+            background: #ffffff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid var(--pw-blue);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-bottom: 16px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
 
         ::-webkit-scrollbar { width: 5px; }
         ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
         
         .ad-container { min-height: 100px; width: 100%; display: block; overflow: hidden; }
+        .policy-text h4 { font-weight: 800; margin-top: 20px; color: #1e1b4b; text-transform: uppercase; font-size: 14px; }
+        .policy-text p { margin-top: 8px; font-size: 13px; color: #4b5563; line-height: 1.6; }
     </style>
 </head>
-<body class="bg-[#f8f9fd]">
+<body>
 
-<div class="welcome-gradient py-3 px-6 text-center">
-    <p class="text-[10px] md:text-xs font-black text-indigo-200 uppercase tracking-[0.4em]">Welcome to JITU Premium Vault — Excellence in Learning</p>
+<!-- Full Screen Center Loader -->
+<div id="globalLoader">
+    <div class="spinner"></div>
+    <p class="text-[10px] font-black uppercase tracking-[0.3em] text-indigo-600 animate-pulse">Loading JITU Vault...</p>
 </div>
 
-<!-- Google AdSense Unit -->
+<!-- Welcome Banner -->
+<div class="welcome-gradient py-3.5 px-6 text-center relative z-[60]">
+    <p class="text-[10px] md:text-xs font-black text-indigo-100 uppercase tracking-[0.4em]">Welcome to JITU Premium Resources — Education Must Be Free For All☺️</p>
+</div>
+
+<!-- AdSense Unit (Jitu_Top_Banner) -->
 <div class="max-w-7xl mx-auto mt-4 px-6 ad-container">
     <ins class="adsbygoogle"
          style="display:block"
          data-ad-client="ca-pub-3849531167902850"
-         data-ad-slot="7504780374"
+         data-ad-slot="2257991427"
          data-ad-format="auto"
          data-full-width-responsive="true"></ins>
     <script>
-         window.onload = function() {
-            try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch (e) {}
-         };
+         (adsbygoogle = window.adsbygoogle || []).push({});
     </script>
 </div>
 
-<header class="sticky top-0 z-50 mt-4">
+<header class="sticky top-0 z-50">
     <nav class="glass-nav px-6 py-4">
         <div class="max-w-7xl mx-auto flex items-center justify-between">
             <div class="flex items-center gap-3">
-                <div class="w-10 h-10 bg-[#5a4bda] rounded-xl flex items-center justify-center text-white font-black text-xl italic shadow-lg shadow-indigo-200">J</div>
+                <div class="w-11 h-11 bg-[#5a4bda] rounded-2xl flex items-center justify-center text-white font-black text-2xl italic shadow-xl shadow-indigo-100">J</div>
                 <div class="flex flex-col">
-                    <h1 class="text-xl font-black tracking-tighter text-gray-900 leading-none uppercase">JITU Education</h1>
-                    <span class="text-[9px] font-bold text-indigo-500 uppercase tracking-[0.2em] mt-1">Premium Access Hub</span>
+                    <h1 class="text-xl font-black tracking-tighter text-gray-900 leading-none uppercase">NOT JITU</h1>
+                    <span class="text-[9px] font-bold text-indigo-500 uppercase tracking-[0.2em] mt-1.5">Premium Resources</span>
                 </div>
             </div>
             <div class="flex items-center gap-3">
-                <button id="addBtn" onclick="openAddModal()" class="hidden bg-[#5a4bda] text-white px-5 py-2.5 rounded-xl text-xs font-bold shadow-lg shadow-indigo-100">+ Add Content</button>
-                <button onclick="openLoginModal()" class="bg-gray-100 text-gray-600 px-4 py-2.5 rounded-xl text-xs font-bold hover:bg-gray-200 transition-colors">Admin Panel</button>
+                <button id="addBtn" onclick="openAddModal()" class="hidden bg-[#5a4bda] text-white px-5 py-2.5 rounded-xl text-xs font-bold shadow-lg shadow-indigo-100 transition-transform active:scale-95">+ Add</button>
+                <button onclick="openLoginModal()" class="bg-gray-100 text-gray-600 px-4 py-2.5 rounded-xl text-[10px] font-bold hover:bg-gray-200 transition-colors uppercase tracking-widest">Admin</button>
             </div>
         </div>
     </nav>
@@ -79,55 +114,128 @@
     </div>
 </header>
 
-<main class="p-4 md:p-8">
+<main class="p-4 md:p-8 min-h-screen">
     <div class="max-w-7xl mx-auto">
-        <div class="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-12 mt-4">
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 mt-6">
             <div>
-                <h2 id="activeSubjectName" class="text-4xl md:text-6xl font-black text-gray-900 tracking-tighter uppercase">Loading...</h2>
-                <div class="h-2 w-24 bg-indigo-600 rounded-full mt-4"></div>
+                <span class="text-[10px] font-black text-indigo-500 uppercase tracking-[0.3em] mb-2 block">Browsing Category</span>
+                <h2 id="activeSubjectName" class="text-4xl md:text-7xl font-black text-gray-900 tracking-tighter uppercase leading-none">...</h2>
+                <div class="h-2 w-20 bg-indigo-600 rounded-full mt-6"></div>
             </div>
-            <div class="relative w-full md:w-96">
-                <input id="searchInput" type="text" placeholder="Search for lectures..." class="w-full bg-white border border-gray-200 px-6 py-4 rounded-3xl text-sm outline-none focus:ring-4 focus:ring-indigo-50 focus:border-indigo-200 transition-all shadow-sm">
+            <div class="relative w-full md:w-96 group">
+                <input id="searchInput" type="text" placeholder="Search resources..." class="w-full bg-white border-2 border-gray-100 px-6 py-4 rounded-[2rem] text-sm outline-none focus:ring-4 focus:ring-indigo-50 focus:border-indigo-300 transition-all shadow-sm group-hover:border-gray-200">
                 <span class="absolute right-6 top-4.5 opacity-30">🔍</span>
             </div>
         </div>
-        <div id="chaptersContainer" class="space-y-16"></div>
-        <div id="emptyState" class="text-center py-32 hidden">
-            <div class="text-7xl mb-6 opacity-20">📂</div>
-            <h3 class="text-2xl font-black text-gray-800 tracking-tight">Vault is empty</h3>
+        
+        <div id="chaptersContainer" class="space-y-20"></div>
+        
+        <div id="emptyState" class="text-center py-40 hidden">
+            <div class="text-8xl mb-6 opacity-10">📂</div>
+            <h3 class="text-2xl font-black text-gray-400 tracking-tight uppercase">No Content Found</h3>
+            <p class="text-gray-400 text-xs mt-2 font-medium">Try checking a different subject or search term</p>
         </div>
     </div>
 </main>
 
-<footer class="py-12 text-center border-t border-gray-100 mt-20">
-    <p class="text-[10px] font-bold text-gray-400 uppercase tracking-[0.3em]">JITU Premium Educational Vault &copy; 2024</p>
+<footer class="bg-white border-t border-gray-100 mt-32 py-20 px-6">
+    <div class="max-w-7xl mx-auto flex flex-col items-center text-center">
+        <div class="flex items-center gap-2 mb-10 opacity-60">
+            <div class="w-9 h-9 bg-gray-900 rounded-xl flex items-center justify-center text-white font-black italic shadow-lg">J</div>
+            <span class="font-black uppercase tracking-[0.3em] text-[11px] text-gray-900">JITU Education</span>
+        </div>
+        
+        <div class="flex flex-wrap justify-center gap-x-10 gap-y-5 mb-12">
+            <button onclick="showModal('aboutModal')" class="text-[11px] font-black text-gray-400 hover:text-indigo-600 uppercase tracking-widest transition-colors">About Us</button>
+            <button onclick="showModal('privacyModal')" class="text-[11px] font-black text-gray-400 hover:text-indigo-600 uppercase tracking-widest transition-colors">Privacy Policy</button>
+            <button onclick="showModal('termsModal')" class="text-[11px] font-black text-gray-400 hover:text-indigo-600 uppercase tracking-widest transition-colors">Terms</button>
+            <button onclick="showModal('contactModal')" class="text-[11px] font-black text-gray-400 hover:text-indigo-600 uppercase tracking-widest transition-colors">Contact</button>
+        </div>
+        
+        <div class="max-w-md bg-gray-50 p-6 rounded-[2rem] mb-10">
+            <p class="text-[10px] font-bold text-gray-400 uppercase tracking-[0.4em] leading-relaxed">Providing Premium Educational Resources to learners across the globe. Excellence is not an act, but a habit.</p>
+        </div>
+        <p class="text-[9px] font-medium text-gray-300 uppercase tracking-widest">&copy; 2024 JITU Educational Hub. Developed with Passion.</p>
+    </div>
 </footer>
 
-<!-- Modals -->
-<div id="modalOverlay" class="fixed inset-0 bg-gray-950/70 backdrop-blur-md hidden z-[100] items-center justify-center p-6 opacity-0 transition-opacity duration-300">
-    <div id="loginModal" class="bg-white rounded-[2rem] w-full max-w-xs p-8 hidden shadow-2xl">
-        <h3 class="text-xl font-black mb-6 text-center tracking-tight uppercase">Admin Login</h3>
-        <input id="passInput" type="password" placeholder="Pass Key" class="w-full bg-gray-50 p-5 rounded-2xl mb-4 text-center text-2xl font-black border border-gray-100 outline-none">
-        <button onclick="tryLogin()" class="w-full bg-[#5a4bda] text-white py-5 rounded-2xl font-black uppercase text-xs tracking-widest">Verify</button>
+<!-- Modals System -->
+<div id="modalOverlay" class="fixed inset-0 bg-gray-950/80 backdrop-blur-xl hidden z-[100] items-center justify-center p-6 opacity-0 transition-all duration-400">
+    
+    <!-- Admin Login -->
+    <div id="loginModal" class="bg-white rounded-[2.5rem] w-full max-w-sm p-10 hidden shadow-2xl scale-95 transition-transform">
+        <div class="w-16 h-16 bg-indigo-50 rounded-3xl flex items-center justify-center mx-auto mb-6">
+            <svg class="w-8 h-8 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+        </div>
+        <h3 class="text-2xl font-black mb-2 text-center tracking-tight uppercase">Admin Access</h3>
+        <p class="text-center text-gray-400 text-[10px] font-bold uppercase tracking-widest mb-8 text-xs">Enter your security key</p>
+        <input id="passInput" type="password" placeholder="••••" class="w-full bg-gray-50 p-6 rounded-3xl mb-6 text-center text-3xl font-black border-2 border-gray-100 outline-none focus:border-indigo-200 tracking-[0.5em]">
+        <button onclick="tryLogin()" class="w-full bg-[#5a4bda] text-white py-6 rounded-3xl font-black uppercase text-xs tracking-[0.2em] shadow-xl shadow-indigo-100">Verify Identity</button>
     </div>
-    <div id="addModal" class="bg-white rounded-[2rem] w-full max-w-md p-8 hidden shadow-2xl max-h-[90vh] overflow-y-auto no-scrollbar">
-        <h3 class="text-2xl font-black mb-6 tracking-tight uppercase">Upload Content</h3>
-        <div class="space-y-4">
-            <input id="vUrl" type="text" placeholder="YouTube Video Link" class="w-full bg-gray-50 p-4 rounded-2xl border border-gray-100 outline-none">
-            <input id="vTitle" type="text" placeholder="Lecture Title" class="w-full bg-gray-50 p-4 rounded-2xl border border-gray-100 outline-none">
-            <div class="grid grid-cols-2 gap-3">
-                <input id="vSub" type="text" placeholder="Subject" class="w-full bg-gray-50 p-4 rounded-2xl border border-gray-100 outline-none">
-                <input id="vChap" type="text" placeholder="Chapter" class="w-full bg-gray-50 p-4 rounded-2xl border border-gray-100 outline-none">
+
+    <!-- Upload/Edit Modal -->
+    <div id="addModal" class="bg-white rounded-[2.5rem] w-full max-w-lg p-10 hidden shadow-2xl max-h-[90vh] overflow-y-auto no-scrollbar">
+        <h3 class="text-3xl font-black mb-8 tracking-tighter uppercase italic">Upload Content</h3>
+        <div class="space-y-5">
+            <div class="space-y-2">
+                <label class="text-[10px] font-black text-gray-400 uppercase tracking-widest ml-2">Video Source</label>
+                <input id="vUrl" type="text" placeholder="Paste YouTube Link" class="w-full bg-gray-50 p-5 rounded-2xl border-2 border-transparent focus:border-indigo-100 focus:bg-white transition-all outline-none">
             </div>
-            <div class="p-5 bg-indigo-50/50 rounded-3xl border border-indigo-100 space-y-4">
-                <label class="text-[10px] font-black text-indigo-400 uppercase tracking-widest px-1">PDF Resources</label>
-                <input id="vNotes" type="text" placeholder="Lecture Notes PDF Link" class="w-full bg-white p-3.5 rounded-xl border border-indigo-100 outline-none">
-                <input id="vChapNotes" type="text" placeholder="Chapter Summary PDF Link" class="w-full bg-white p-3.5 rounded-xl border border-indigo-100 outline-none">
+            <div class="space-y-2">
+                <label class="text-[10px] font-black text-gray-400 uppercase tracking-widest ml-2">Video Meta</label>
+                <input id="vTitle" type="text" placeholder="Lesson Title" class="w-full bg-gray-50 p-5 rounded-2xl border-2 border-transparent focus:border-indigo-100 focus:bg-white transition-all outline-none">
+            </div>
+            <div class="grid grid-cols-2 gap-4">
+                <input id="vSub" type="text" placeholder="Subject" class="w-full bg-gray-50 p-5 rounded-2xl border-2 border-transparent focus:border-indigo-100 focus:bg-white transition-all outline-none">
+                <input id="vChap" type="text" placeholder="Chapter" class="w-full bg-gray-50 p-5 rounded-2xl border-2 border-transparent focus:border-indigo-100 focus:bg-white transition-all outline-none">
+            </div>
+            <div class="p-6 bg-indigo-50/30 rounded-[2rem] border-2 border-indigo-50 space-y-4">
+                <label class="text-[10px] font-black text-indigo-400 uppercase tracking-widest px-1 block mb-2">Resource Files (PDF)</label>
+                <input id="vNotes" type="text" placeholder="Lecture Notes URL" class="w-full bg-white p-4 rounded-xl border border-indigo-50 outline-none text-sm">
+                <input id="vChapNotes" type="text" placeholder="Chapter Summary URL" class="w-full bg-white p-4 rounded-xl border border-indigo-50 outline-none text-sm">
             </div>
             <input type="hidden" id="editId">
-            <button onclick="saveVideo()" class="w-full bg-[#5a4bda] text-white py-5 rounded-2xl font-black shadow-xl uppercase text-xs tracking-widest">Publish</button>
-            <button onclick="closeModals()" class="w-full text-gray-400 text-[10px] font-black uppercase tracking-[0.2em] text-center mt-3">Close</button>
+            <button onclick="saveVideo()" class="w-full bg-[#5a4bda] text-white py-6 rounded-3xl font-black shadow-xl shadow-indigo-100 uppercase text-xs tracking-[0.2em]">Publish Changes</button>
+            <button onclick="closeModals()" class="w-full text-gray-400 text-[10px] font-black uppercase tracking-widest text-center mt-4">Cancel</button>
         </div>
+    </div>
+
+    <!-- Legal & About -->
+    <div id="privacyModal" class="bg-white rounded-[2.5rem] w-full max-w-2xl p-10 hidden shadow-2xl max-h-[80vh] overflow-y-auto no-scrollbar">
+        <h3 class="text-3xl font-black mb-4 tracking-tighter uppercase">Privacy Policy</h3>
+        <div class="policy-text">
+            <h4>Safety & Data</h4>
+            <p>We prioritize your privacy. No personal student data is stored on our servers. We use industry-standard Firebase security for data integrity.</p>
+            <h4>Cookie Usage</h4>
+            <p>Cookies are used only via Google AdSense for delivering a better ad experience. You can opt-out via browser settings.</p>
+        </div>
+        <button onclick="closeModals()" class="w-full mt-10 bg-gray-900 text-white py-5 rounded-3xl font-black uppercase text-[10px] tracking-widest shadow-lg">Acknowledged</button>
+    </div>
+
+    <div id="aboutModal" class="bg-white rounded-[2.5rem] w-full max-w-lg p-10 hidden shadow-2xl text-center">
+        <div class="w-20 h-20 bg-indigo-600 rounded-[2rem] flex items-center justify-center text-white text-4xl font-black italic mx-auto mb-8 shadow-xl">J</div>
+        <h3 class="text-3xl font-black mb-4 tracking-tighter uppercase leading-tight">Empowering Every Student</h3>
+        <p class="text-gray-500 text-sm leading-relaxed mb-8 px-4">JITU Education is more than just a website. It's a digital library built for those who strive for excellence. We organize the best resources so you can focus on what matters most: Learning.</p>
+        <button onclick="closeModals()" class="w-full bg-gray-100 text-gray-800 py-5 rounded-3xl font-black uppercase text-[10px] tracking-widest">Back to Vault</button>
+    </div>
+
+    <div id="contactModal" class="bg-white rounded-[2.5rem] w-full max-w-sm p-10 hidden shadow-2xl text-center">
+        <h3 class="text-3xl font-black mb-8 tracking-tighter uppercase">Get In Touch</h3>
+        <div class="bg-indigo-50 p-8 rounded-[2rem] mb-8">
+            <p class="text-[10px] font-black text-indigo-400 uppercase tracking-widest mb-4">Official Email</p>
+            <p class="text-xl font-black text-gray-900 underline decoration-indigo-300 decoration-4">support@jitu.edu</p>
+        </div>
+        <button onclick="closeModals()" class="w-full bg-indigo-600 text-white py-5 rounded-3xl font-black uppercase text-[10px] tracking-widest shadow-xl">Close</button>
+    </div>
+
+    <div id="termsModal" class="bg-white rounded-[2.5rem] w-full max-w-2xl p-10 hidden shadow-2xl">
+        <h3 class="text-3xl font-black mb-6 tracking-tighter uppercase">Terms of Service</h3>
+        <div class="text-gray-500 text-sm space-y-4">
+            <p>1. Content is provided solely for educational purposes.</p>
+            <p>2. Users must not attempt to scrape or misuse the platform infrastructure.</p>
+            <p>3. All PDF materials are property of their respective creators.</p>
+        </div>
+        <button onclick="closeModals()" class="w-full mt-10 bg-gray-100 py-5 rounded-3xl font-black uppercase text-[10px] tracking-widest">I Agree</button>
     </div>
 </div>
 
@@ -159,18 +267,26 @@ function listen() {
     onSnapshot(collection(db, 'artifacts', COLLECTION_ID, 'public', 'data', 'videos'), snap => {
         videoList = snap.docs.map(d => ({ id: d.id, ...d.data() }));
         if(videoList.length > 0 && !currentSubject) currentSubject = videoList[0].subject;
+        
+        // Hide global loader once first data arrives
+        const loader = document.getElementById('globalLoader');
+        if(loader) {
+            loader.style.opacity = '0';
+            setTimeout(() => loader.remove(), 500);
+        }
+        
         render();
+    }, error => {
+        console.error("Firebase Error: ", error);
+        document.getElementById('globalLoader').innerHTML = "<p class='text-red-500 font-bold'>Connection Error. Please Refresh.</p>";
     });
 }
 
 const getThumbnail = (ytId) => `https://img.youtube.com/vi/${ytId}/hqdefault.jpg`;
 
 window.handleThumbError = (img, ytId) => {
-    if (img.src.includes('hqdefault')) {
-        img.src = `https://img.youtube.com/vi/${ytId}/0.jpg`;
-    } else if (img.src.includes('0.jpg')) {
-        img.src = `https://via.placeholder.com/480x360?text=Video+Thumbnail`;
-    }
+    if (img.src.includes('hqdefault')) img.src = `https://img.youtube.com/vi/${ytId}/0.jpg`;
+    else img.src = `https://via.placeholder.com/600x400?text=Premium+Lecture`;
 };
 
 window.render = () => {
@@ -180,51 +296,51 @@ window.render = () => {
     
     const uniqueSubs = [...new Set(videoList.map(v => v.subject))];
     subList.innerHTML = uniqueSubs.map(s => `
-        <button onclick="selectSubject('${s}')" class="sub-pill shrink-0 px-6 py-2.5 rounded-full text-[11px] font-black uppercase tracking-widest border border-gray-100 ${currentSubject === s ? 'active bg-indigo-600 text-white' : 'bg-white text-gray-400'}">
+        <button onclick="selectSubject('${s}')" class="sub-pill shrink-0 px-8 py-3 rounded-full text-[10px] font-black uppercase tracking-widest border-2 border-transparent shadow-sm ${currentSubject === s ? 'active bg-indigo-600 text-white' : 'bg-white text-gray-400 border-gray-100 hover:border-indigo-100'} transition-all">
             ${s}
         </button>
     `).join('');
 
     const subVideos = videoList.filter(v => v.subject === currentSubject && (v.title || '').toLowerCase().includes(search));
-    const chapters = [...new Set(subVideos.map(v => v.chapter || 'Foundations'))];
+    const chapters = [...new Set(subVideos.map(v => v.chapter || 'Overview'))];
     
     document.getElementById('emptyState').classList.toggle('hidden', subVideos.length > 0);
-    document.getElementById('activeSubjectName').innerText = currentSubject || "Select Subject";
+    document.getElementById('activeSubjectName').innerText = currentSubject || "Selecting...";
 
     chaptersCont.innerHTML = chapters.map(chap => {
-        const chapVideos = subVideos.filter(v => (v.chapter || 'Foundations') === chap);
+        const chapVideos = subVideos.filter(v => (v.chapter || 'Overview') === chap);
         const chapNotes = chapVideos.find(v => v.chapNotes)?.chapNotes;
 
         return `
-            <div>
-                <div class="flex items-center flex-wrap gap-4 mb-8">
-                    <div class="h-10 w-2 bg-indigo-600 rounded-full"></div>
-                    <h3 class="text-2xl font-black text-gray-800 tracking-tight uppercase">${chap}</h3>
-                    ${chapNotes ? `<button onclick="window.open('${chapNotes}', '_blank')" class="bg-white border-2 border-indigo-50 text-[10px] font-black text-indigo-600 px-5 py-2.5 rounded-2xl hover:bg-indigo-50 uppercase tracking-widest shadow-sm">📄 Summary PDF</button>` : ''}
+            <div class="animate-in fade-in slide-in-from-bottom-4 duration-700">
+                <div class="flex items-center flex-wrap gap-5 mb-10">
+                    <div class="h-12 w-2.5 bg-indigo-600 rounded-full shadow-lg shadow-indigo-100"></div>
+                    <h3 class="text-3xl font-black text-gray-900 tracking-tighter uppercase italic">${chap}</h3>
+                    ${chapNotes ? `<button onclick="window.open('${chapNotes}', '_blank')" class="bg-indigo-600 text-[10px] font-black text-white px-6 py-3 rounded-2xl hover:bg-indigo-700 uppercase tracking-widest shadow-xl shadow-indigo-100 transition-all active:scale-95 flex items-center gap-2"><span>📄</span> Summary PDF</button>` : ''}
                 </div>
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10">
                     ${chapVideos.map(v => `
                         <div class="video-card group cursor-pointer" onclick="window.open('https://youtube.com/watch?v=${v.ytId}', '_blank')">
-                            <div class="aspect-video relative overflow-hidden bg-gray-200">
-                                <img src="${getThumbnail(v.ytId)}" onerror="handleThumbError(this, '${v.ytId}')" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                                <div class="absolute inset-0 bg-indigo-900/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                                    <div class="w-14 h-14 bg-white rounded-full flex items-center justify-center shadow-xl">
-                                        <div class="border-l-[14px] border-l-indigo-600 border-y-[8px] border-y-transparent ml-1"></div>
+                            <div class="aspect-video relative overflow-hidden bg-gray-100">
+                                <img src="${getThumbnail(v.ytId)}" onerror="handleThumbError(this, '${v.ytId}')" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                                <div class="absolute inset-0 bg-indigo-950/60 opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center backdrop-blur-[2px]">
+                                    <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-2xl transform scale-50 group-hover:scale-100 transition-transform duration-500">
+                                        <div class="border-l-[18px] border-l-indigo-600 border-y-[10px] border-y-transparent ml-1.5"></div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="p-6 flex flex-col flex-1">
-                                <h4 class="text-sm font-black text-gray-800 leading-tight mb-6 line-clamp-2 uppercase tracking-tighter">${v.title}</h4>
+                            <div class="p-8 flex flex-col flex-1">
+                                <h4 class="text-base font-black text-gray-900 leading-[1.3] mb-8 line-clamp-2 uppercase tracking-tight group-hover:text-indigo-600 transition-colors">${v.title}</h4>
                                 <div class="mt-auto flex items-center justify-between">
                                     <div class="flex gap-2">
-                                        ${v.notes ? `<button onclick="event.stopPropagation(); window.open('${v.notes}', '_blank')" class="bg-indigo-50 text-indigo-600 text-[10px] font-black px-3 py-2 rounded-xl uppercase">Notes 📘</button>` : ''}
+                                        ${v.notes ? `<button onclick="event.stopPropagation(); window.open('${v.notes}', '_blank')" class="bg-indigo-50 text-indigo-600 text-[9px] font-black px-4 py-2.5 rounded-xl uppercase tracking-widest hover:bg-indigo-100 transition-colors">Study Notes</button>` : ''}
                                         ${isAdmin ? `
-                                            <button onclick="event.stopPropagation(); editEntry('${v.id}')" class="text-[10px] text-gray-400 font-bold ml-2">Edit</button>
-                                            <button onclick="event.stopPropagation(); deleteMe('${v.id}')" class="text-[10px] text-red-400 font-bold ml-2">Del</button>
+                                            <button onclick="event.stopPropagation(); editEntry('${v.id}')" class="text-[9px] text-gray-400 font-bold hover:text-gray-900 uppercase ml-2 tracking-tighter">Edit</button>
+                                            <button onclick="event.stopPropagation(); deleteMe('${v.id}')" class="text-[9px] text-red-300 font-bold hover:text-red-600 uppercase ml-2 tracking-tighter">Del</button>
                                         ` : ''}
                                     </div>
-                                    <div class="watch-btn text-white p-3 rounded-2xl shadow-lg shadow-indigo-100">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+                                    <div class="watch-btn text-white p-3.5 rounded-2xl shadow-xl shadow-indigo-50">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="4"><path d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
                                     </div>
                                 </div>
                             </div>
@@ -244,12 +360,15 @@ window.saveVideo = async () => {
     const chapNotes = document.getElementById('vChapNotes').value;
     const editId = document.getElementById('editId').value;
     const ytId = url.match(/(?:v=|\/|embed\/|youtu.be\/)([0-9A-Za-z_-]{11})/)?.[1];
+    
     if(title && ytId && sub) {
-        const data = { title, subject: sub, chapter: chap, ytId, notes, chapNotes, updatedAt: Date.now() };
-        if(editId) await updateDoc(doc(db, 'artifacts', COLLECTION_ID, 'public', 'data', 'videos', editId), data);
-        else await addDoc(collection(db, 'artifacts', COLLECTION_ID, 'public', 'data', 'videos'), { ...data, createdAt: Date.now() });
-        closeModals();
-    } else alert("Details missing!");
+        const data = { title, subject: sub, chapter: chap || 'Overview', ytId, notes, chapNotes, updatedAt: Date.now() };
+        try {
+            if(editId) await updateDoc(doc(db, 'artifacts', COLLECTION_ID, 'public', 'data', 'videos', editId), data);
+            else await addDoc(collection(db, 'artifacts', COLLECTION_ID, 'public', 'data', 'videos'), { ...data, createdAt: Date.now() });
+            closeModals();
+        } catch(e) { console.error("Save error", e); }
+    } else alert("Required fields: Title, Link, Subject");
 };
 
 window.editEntry = (id) => {
@@ -265,19 +384,29 @@ window.editEntry = (id) => {
 };
 
 window.selectSubject = (s) => { currentSubject = s; render(); };
+
 window.tryLogin = () => {
     if(document.getElementById('passInput').value === PASS_KEY) {
         isAdmin = true; document.getElementById('addBtn').classList.remove('hidden');
         closeModals(); render();
-    } else alert("Wrong Key!");
+    } else alert("Invalid Passkey");
 };
+
 window.showModal = (id) => {
     document.getElementById('modalOverlay').classList.remove('hidden');
     document.getElementById('modalOverlay').classList.add('flex');
-    document.getElementById('loginModal').classList.toggle('hidden', id !== 'loginModal');
-    document.getElementById('addModal').classList.toggle('hidden', id !== 'addModal');
-    setTimeout(() => document.getElementById('modalOverlay').style.opacity = '1', 10);
+    ['loginModal', 'addModal', 'privacyModal', 'aboutModal', 'contactModal', 'termsModal'].forEach(mId => {
+        const el = document.getElementById(mId);
+        if(el) el.classList.add('hidden');
+    });
+    const target = document.getElementById(id);
+    if(target) target.classList.remove('hidden');
+    setTimeout(() => {
+        document.getElementById('modalOverlay').style.opacity = '1';
+        if(target) target.style.transform = 'scale(1)';
+    }, 50);
 };
+
 window.openLoginModal = () => isAdmin ? location.reload() : showModal('loginModal');
 window.openAddModal = () => {
     document.getElementById('editId').value = "";
@@ -289,11 +418,20 @@ window.openAddModal = () => {
     document.getElementById('vChapNotes').value = "";
     showModal('addModal');
 };
-window.closeModals = () => document.getElementById('modalOverlay').classList.add('hidden');
-window.deleteMe = async (id) => { if(confirm("Delete video?")) await deleteDoc(doc(db, 'artifacts', COLLECTION_ID, 'public', 'data', 'videos', id)); };
+
+window.closeModals = () => {
+    document.getElementById('modalOverlay').style.opacity = '0';
+    setTimeout(() => {
+        document.getElementById('modalOverlay').classList.add('hidden');
+        document.getElementById('modalOverlay').classList.remove('flex');
+    }, 400);
+};
+
+window.deleteMe = async (id) => { if(confirm("Permanently delete this resource?")) await deleteDoc(doc(db, 'artifacts', COLLECTION_ID, 'public', 'data', 'videos', id)); };
 
 document.getElementById('searchInput').addEventListener('input', render);
 startup();
 </script>
 </body>
-    </html>
+</html>
+
