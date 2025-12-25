@@ -221,7 +221,7 @@ const LEGAL_DATA = {
     disclaimer: `<h2 class="text-2xl font-black mb-4 uppercase">Disclaimer</h2><p>Hum official board se nahi jude hain. Data students ki help ke liye hai.</p>`
 };
 
-// Helper to sort strings naturally (Chapter 1, Chapter 2, Chapter 10)
+// Helper to sort strings naturally (Chapter 1, Chapter 2, Chapter 10, Lecture 1, Lecture 2...)
 const naturalSort = (a, b) => {
     return a.localeCompare(b, undefined, { numeric: true, sensitivity: 'base' });
 };
@@ -236,7 +236,7 @@ async function startup() {
 function listen() {
     onSnapshot(collection(db, 'artifacts', COLLECTION_ID, 'public', 'data', 'videos'), snap => {
         const rawData = snap.docs.map(d => ({ id: d.id, ...d.data() }));
-        // Lecture sequence: oldest first (L1, L2...)
+        // Base sorting by creation to keep some stability, but render() handles complex sequence
         videoList = rawData.sort((a, b) => (a.createdAt || 0) - (b.createdAt || 0));
         
         if(videoList.length > 0 && !currentSubject) {
@@ -277,9 +277,14 @@ window.render = () => {
     subList.innerHTML = uniqueSubs.map(s => `<button onclick="selectSubject('${s}')" class="sub-pill px-10 py-4 rounded-full text-[10px] font-black uppercase whitespace-nowrap transition-all ${currentSubject === s ? 'active' : ''}">${s}</button>`).join('');
     
     document.getElementById('activeSubjectName').innerText = currentSubject || "Study Materials";
-    const subVideos = videoList.filter(v => v.subject === currentSubject && v.title.toLowerCase().includes(search));
     
-    // CHAPTER SEQUENCE FIXED: Use natural sort for chapter names (Chapter 1, 2, 3...)
+    // Filter videos by current subject and search
+    let subVideos = videoList.filter(v => v.subject === currentSubject && v.title.toLowerCase().includes(search));
+    
+    // SEQUENCE FIX: Sort all subVideos by Title first to handle L1, L2, L3 sequence
+    subVideos.sort((a, b) => naturalSort(a.title, b.title));
+    
+    // CHAPTER SEQUENCE FIXED: Use natural sort for chapter names
     const chapters = [...new Set(subVideos.map(v => v.chapter || 'General'))].sort(naturalSort);
 
     document.getElementById('emptyState').classList.toggle('hidden', subVideos.length > 0);
@@ -301,7 +306,6 @@ window.render = () => {
                     ${chapVideos.map(v => `
                         <div class="video-card group">
                             <div class="aspect-video cursor-pointer relative overflow-hidden bg-indigo-950" onclick="playVideo('${v.m3u8Url}')">
-                                <!-- Auto Premium Thumbnail Background -->
                                 <div class="absolute inset-0 flex items-center justify-center">
                                     <div class="text-center p-6 select-none">
                                         <p class="text-[10px] font-black text-indigo-400 uppercase tracking-widest mb-1 opacity-60">${v.subject} - ${v.chapter}</p>
@@ -392,4 +396,4 @@ document.getElementById('searchInput').addEventListener('input', render);
 startup();
 </script>
 </body>
-            </html>
+    </html>
