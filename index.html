@@ -3,21 +3,23 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>JITU | Free Notes & Video Lectures</title>
+    <title>Jitu | Free Notes & Video Lectures</title>
     <meta name="description" content="JITU Vault provides high-quality Class 11 Science study material. Get free notes and video lectures.">
     
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7037140892556243" crossorigin="anonymous"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbackend.js?client=ca-pub-7037140892556243" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <style>
         :root { --pw-blue: #5a4bda; --bg: #f8f9fd; }
         body { font-family: 'Outfit', sans-serif; background-color: var(--bg); color: #1e2937; margin: 0; overflow-x: hidden; scroll-behavior: smooth; }
         
+        h1, h2, h3, h4, span, p, button, input { font-style: normal !important; }
+
         .platform-card { border: 2px solid #eef2f6; background: white; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); cursor: pointer; position: relative; overflow: hidden; }
         .platform-card.active { border-color: var(--pw-blue); background: #f5f3ff; transform: translateY(-4px); box-shadow: 0 15px 30px -10px rgba(90, 75, 218, 0.2); }
-        .platform-card.active::after { content: 'SELECTED'; position: absolute; top: 10px; right: 10px; font-size: 8px; font-weight: 900; background: var(--pw-blue); color: white; padding: 2px 8px; border-radius: 4px; }
+        .platform-card.active::after { content: 'SELECTED'; position: absolute; top: 10px; right: 10px; font-size: 8px; font-weight: 700; background: var(--pw-blue); color: white; padding: 2px 8px; border-radius: 4px; }
 
         .sub-pill { border: 2px solid #e2e8f0; background: #ffffff; color: #475569; transition: all 0.3s ease; }
         .sub-pill.active { background: var(--pw-blue); color: white; border-color: var(--pw-blue); box-shadow: 0 10px 15px -3px rgba(90, 75, 218, 0.3); transform: translateY(-2px); }
@@ -45,16 +47,16 @@
 
 <div id="globalLoader">
     <div class="spinner"></div>
-    <p class="mt-4 text-[10px] font-black uppercase tracking-widest text-indigo-600">Ruko jara sabar karo🤠 Loading...</p>
+    <p class="mt-4 text-[10px] font-bold uppercase tracking-widest text-indigo-600">Ruko jara sabar karo🤠 Loading...</p>
 </div>
 
 <header class="sticky top-0 z-50">
     <nav class="glass-nav px-6 py-4">
         <div class="max-w-7xl mx-auto flex items-center justify-between">
             <div class="flex items-center gap-3">
-                <div class="w-10 h-10 bg-[#5a4bda] rounded-xl flex items-center justify-center text-white font-black text-xl italic shadow-lg">J</div>
+                <div class="w-10 h-10 bg-[#5a4bda] rounded-xl flex items-center justify-center text-white font-bold text-xl shadow-lg">J</div>
                 <div class="flex flex-col">
-                    <span class="text-lg font-black tracking-tighter text-gray-900 leading-none uppercase">JITU Premium Resources</span>
+                    <span class="text-lg font-bold tracking-tight text-gray-900 leading-none uppercase">JITU Premium Resources</span>
                     <span class="text-[8px] font-bold text-indigo-500 uppercase tracking-widest mt-1">Premium Education Material</span>
                 </div>
             </div>
@@ -68,7 +70,7 @@
 
 <section class="hero-gradient pt-16 pb-24 px-6 text-center text-white">
     <div class="max-w-5xl mx-auto">
-        <h1 class="text-4xl md:text-7xl font-black tracking-tighter leading-none mb-6 uppercase italic">
+        <h1 class="text-4xl md:text-6xl font-bold tracking-tight leading-none mb-6 uppercase">
             Class 11 Science <br> <span class="text-indigo-400">Free Study Materials. ☺️</span>
         </h1>
         <p class="text-indigo-100/70 text-sm font-medium uppercase tracking-widest">Physics • Chemistry • Maths • Biology • English</p>
@@ -78,15 +80,15 @@
 <!-- Platforms Selection -->
 <section class="bg-white px-6 pt-12 pb-6">
     <div class="max-w-3xl mx-auto">
-        <p class="text-[10px] font-black text-gray-400 uppercase tracking-widest mb-4 text-center">Choose Your Platform</p>
+        <p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-4 text-center">Choose Your Platform</p>
         <div class="grid grid-cols-2 gap-4">
             <div id="plat-PW" onclick="selectPlatform('PW')" class="platform-card p-6 rounded-[2.5rem] flex flex-col items-center gap-4 active">
                 <img src="https://i.ibb.co/7tTCGV81/download.png" class="w-20 h-20 object-contain rounded-full border-4 border-white shadow-md" alt="PW Logo">
-                <span class="text-sm font-black uppercase italic text-gray-800 tracking-tight">Physics Wallah</span>
+                <span class="text-sm font-bold uppercase text-gray-800 tracking-tight">Physics Wallah</span>
             </div>
             <div id="plat-NT" onclick="selectPlatform('NT')" class="platform-card p-6 rounded-[2.5rem] flex flex-col items-center gap-4">
                 <img src="https://i.ibb.co/ks97sGmS/download-1.png" class="w-20 h-20 object-contain rounded-full border-4 border-white shadow-md" alt="NT Logo">
-                <span class="text-sm font-black uppercase italic text-gray-800 tracking-tight">Next Toppers</span>
+                <span class="text-sm font-bold uppercase text-gray-800 tracking-tight">Next Toppers</span>
             </div>
         </div>
     </div>
@@ -101,41 +103,41 @@
     <div class="max-w-3xl mx-auto">
         <!-- Search Box -->
         <div class="mb-10">
-            <input id="searchInput" type="text" placeholder="Search Chapter or Lecture..." class="w-full bg-white border-2 border-gray-100 px-6 py-4 rounded-2xl outline-none focus:border-indigo-500 transition-all shadow-sm">
+            <input id="searchInput" type="text" placeholder="Search Chapter or Lecture..." class="w-full bg-white border-2 border-gray-100 px-6 py-4 rounded-2xl outline-none focus:border-indigo-500 transition-all shadow-sm font-medium">
         </div>
 
         <!-- Vertical Chapter List -->
         <div id="verticalContent" class="space-y-4"></div>
         
         <div id="emptyState" class="text-center py-20 hidden">
-            <p class="text-xl font-black text-gray-300 uppercase italic">No Content Found...</p>
+            <p class="text-xl font-bold text-gray-300 uppercase">No Content Found...</p>
         </div>
 
-        <!-- Detailed Information Sections - ALL BROUGHT BACK -->
+        <!-- RESTORED FOOTER SECTIONS -->
         <div class="mt-40 space-y-16">
             <div id="about-us" class="footer-card">
-                <h2 class="text-4xl font-black uppercase italic text-indigo-900 mb-8 border-b-4 border-indigo-600 inline-block">About Us</h2>
-                <p class="text-xl text-gray-700 leading-relaxed font-semibold">JITU VAULT ek educational platform hai jo specially Class 11 Science ke students ko dhyan mein rakh kar banaya gaya hai. Humara mission har student ko Physics Wallah (PW) aur Next Toppers (NT) ke premium quality lectures aur handwritten notes free of cost provide karna hai, taaki financial barriers unki padhai mein rukaavat na banein.</p>
+                <h2 class="text-3xl font-bold uppercase text-indigo-900 mb-8 border-b-4 border-indigo-600 inline-block">About Us</h2>
+                <p class="text-lg text-gray-700 leading-relaxed font-semibold">JITU VAULT ek educational platform hai jo specially Class 11 Science ke students ko dhyan mein rakkar banaya gaya hai. Humara mission har student ko Physics Wallah (PW) aur Next Toppers (NT) ke premium quality lectures aur handwritten notes free of cost provide karna hai, taaki financial barriers unki padhai mein rukaavat na banein.</p>
             </div>
 
             <div id="contact-us" class="footer-card bg-indigo-50">
-                <h2 class="text-4xl font-black uppercase italic text-indigo-900 mb-8 border-b-4 border-indigo-600 inline-block">Contact Us</h2>
-                <p class="text-xl text-gray-700 leading-relaxed font-semibold mb-8">Agar aapko resources access karne mein koi dikkat ho rahi hai ya aap koi feedback dena chahte hain, toh humein contact karein, gamil - gajendrakushwah1027@gmail.com</p>
+                <h2 class="text-3xl font-bold uppercase text-indigo-900 mb-8 border-b-4 border-indigo-600 inline-block">Contact Us</h2>
+                <p class="text-lg text-gray-700 leading-relaxed font-semibold mb-8">Agar aapko resources access karne mein koi dikkat ho rahi hai ya aap koi feedback dena chahte hain, toh humein contact karein, gmail - gajendrakushwah1027@gmail.com</p>
                 <div class="flex flex-wrap gap-6">
-                    <a href="https://youtube.com/@notjitu1022?si=ZivLdwErKW40-_87" class="bg-red-600 text-white px-10 py-5 rounded-2xl text-sm font-black uppercase italic shadow-lg">YouTube Support</a>
-                    <a href="https://www.instagram.com/notjitu_fz/" class="bg-purple-600 text-white px-10 py-5 rounded-2xl text-sm font-black uppercase italic shadow-lg">Instagram</a>
-                    <a href="https://jituearningtips.blogspot.com" class="bg-green-600 text-white px-10 py-5 rounded-2xl text-sm font-black uppercase italic shadow-lg">Support Me 🙏🥺</a>
+                    <a href="https://youtube.com/@notjitu1022?si=ZivLdwErKW40-_87" class="bg-red-600 text-white px-8 py-4 rounded-2xl text-xs font-bold uppercase shadow-lg">YouTube Support</a>
+                    <a href="https://www.instagram.com/notjitu_fz/" class="bg-purple-600 text-white px-8 py-4 rounded-2xl text-xs font-bold uppercase shadow-lg">Instagram</a>
+                    <a href="https://jituearningtips.blogspot.com" class="bg-green-600 text-white px-8 py-4 rounded-2xl text-xs font-bold uppercase shadow-lg">Support Me 🙏🥺</a>
                 </div>
             </div>
 
             <div id="privacy-policy" class="footer-card">
-                <h2 class="text-4xl font-black uppercase italic text-indigo-900 mb-8 border-b-4 border-indigo-600 inline-block">Privacy Policy</h2>
-                <p class="text-xl text-gray-700 leading-relaxed font-semibold">Hum JITU VAULT par aapki privacy ka pura dhyan rakhte hain. Hum kisi bhi tarah ka personal data ya tracking nahi karte. Humari website par sirf educational content aur Google AdSense ka use hota hai jo unki apni policy ke mutabik cookies use karte hain. Humara uddeshya sirf aapko quality content dena hai.</p>
+                <h2 class="text-3xl font-bold uppercase text-indigo-900 mb-8 border-b-4 border-indigo-600 inline-block">Privacy Policy</h2>
+                <p class="text-lg text-gray-700 leading-relaxed font-semibold">Hum JITU VAULT par aapki privacy ka pura dhyan rakhte hain. Hum kisi bhi tarah ka personal data ya tracking nahi karte. Humari website par sirf educational content aur Google AdSense ka use hota hai jo unki apni policy ke mutabik cookies use karte hain. Humara uddeshya sirf aapko quality content dena hai.</p>
             </div>
 
             <div id="disclaimer" class="footer-card">
-                <h2 class="text-4xl font-black uppercase italic text-indigo-900 mb-8 border-b-4 border-indigo-600 inline-block">Disclaimer</h2>
-                <p class="text-xl text-gray-700 leading-relaxed font-semibold">JITU VAULT kisi bhi official educational board ya sarkari sanstha se juda hua nahi hai. Yahan diya gaya sara material sirf educational purpose ke liye hai. Hum content ki accuracy maintain karne ki puri koshish karte hain par students ko official textbooks se bhi verify karne ki salah di jati hai.</p>
+                <h2 class="text-3xl font-bold uppercase text-indigo-900 mb-8 border-b-4 border-indigo-600 inline-block">Disclaimer</h2>
+                <p class="text-lg text-gray-700 leading-relaxed font-semibold">JITU VAULT kisi bhi official educational board ya sarkari sanstha se juda hua nahi hai. Yahan diya gaya sara material sirf educational purpose ke liye hai. Hum content ki accuracy maintain karne ki puri koshish karte hain par students ko official textbooks se bhi verify karne ki salah di jati hai.</p>
             </div>
         </div>
     </div>
@@ -143,42 +145,54 @@
 
 <!-- Modal System -->
 <div id="modalOverlay" class="fixed inset-0 bg-gray-950/90 backdrop-blur-xl hidden z-[100] items-center justify-center p-6 opacity-0 transition-all duration-300">
+    
     <!-- Admin Login -->
-    <div id="loginModal" class="bg-white rounded-[2.5rem] w-full max-w-sm p-10 hidden shadow-2xl">
-        <h3 class="text-2xl font-black mb-6 text-center uppercase italic">Admin Access</h3>
-        <input id="passInput" type="password" placeholder="Passkey" class="w-full bg-gray-50 p-5 rounded-2xl mb-6 text-center text-2xl font-black border-2 border-gray-100">
-        <button onclick="tryLogin()" class="w-full bg-indigo-600 text-white py-5 rounded-2xl font-black uppercase tracking-widest">Verify</button>
+    <div id="loginModal" class="bg-white rounded-[2.5rem] w-full max-sm p-10 hidden shadow-2xl">
+        <h3 class="text-2xl font-bold mb-6 text-center uppercase">Admin Access</h3>
+        <input id="passInput" type="password" placeholder="Passkey" class="w-full bg-gray-50 p-5 rounded-2xl mb-6 text-center text-2xl font-bold border-2 border-gray-100 outline-none">
+        <button onclick="tryLogin()" class="w-full bg-indigo-600 text-white py-5 rounded-2xl font-bold uppercase tracking-widest">Verify</button>
+    </div>
+
+    <!-- Rename Chapter Modal -->
+    <div id="renameModal" class="bg-white rounded-[2.5rem] w-full max-w-sm p-10 hidden shadow-2xl">
+        <h3 class="text-xl font-bold mb-6 text-center uppercase text-indigo-900">Rename Chapter</h3>
+        <input id="newNameInput" type="text" placeholder="Enter New Name" class="w-full bg-gray-50 p-5 rounded-2xl mb-6 font-bold border-2 border-gray-100 outline-none">
+        <input type="hidden" id="oldNameStore">
+        <div class="flex gap-4">
+            <button onclick="closeModals()" class="flex-1 bg-gray-100 py-4 rounded-xl font-bold uppercase text-[10px]">Cancel</button>
+            <button onclick="processRename()" class="flex-1 bg-indigo-600 text-white py-4 rounded-xl font-bold uppercase text-[10px]">Update All</button>
+        </div>
     </div>
 
     <!-- Content Upload Modal -->
     <div id="addModal" class="bg-white rounded-[2.5rem] w-full max-w-xl p-10 hidden max-h-[90vh] overflow-y-auto no-scrollbar">
-        <h3 class="text-3xl font-black mb-8 italic uppercase text-indigo-900">Add Content</h3>
+        <h3 class="text-3xl font-bold mb-8 uppercase text-indigo-900">Add Content</h3>
         <div class="space-y-4">
             <div class="grid grid-cols-2 gap-4">
                 <div class="flex flex-col gap-1">
-                    <label class="text-[9px] font-black uppercase text-gray-400 ml-2">Platform</label>
-                    <select id="vPlatform" class="w-full bg-gray-50 p-5 rounded-2xl border border-gray-100 font-bold">
+                    <label class="text-[9px] font-bold uppercase text-gray-400 ml-2">Platform</label>
+                    <select id="vPlatform" class="w-full bg-gray-50 p-5 rounded-2xl border border-gray-100 font-bold outline-none">
                         <option value="PW">Physics Wallah</option>
                         <option value="NT">Next Toppers</option>
                     </select>
                 </div>
                 <div class="flex flex-col gap-1">
-                    <label class="text-[9px] font-black uppercase text-gray-400 ml-2">Subject</label>
-                    <input id="vSub" type="text" placeholder="Physics" class="w-full bg-gray-50 p-5 rounded-2xl border border-gray-100">
+                    <label class="text-[9px] font-bold uppercase text-gray-400 ml-2">Subject</label>
+                    <input id="vSub" type="text" placeholder="Physics" class="w-full bg-gray-50 p-5 rounded-2xl border border-gray-100 font-semibold outline-none">
                 </div>
             </div>
-            <input id="vTitle" type="text" placeholder="Lecture Title" class="w-full bg-gray-50 p-5 rounded-2xl border border-gray-100">
-            <input id="vChap" type="text" placeholder="Chapter Name" class="w-full bg-gray-50 p-5 rounded-2xl border border-gray-100">
-            <input id="vUrl" type="text" placeholder="M3U8 Video Link" class="w-full bg-gray-50 p-5 rounded-2xl border border-gray-100">
+            <input id="vTitle" type="text" placeholder="Lecture Title" class="w-full bg-gray-50 p-5 rounded-2xl border border-gray-100 font-semibold outline-none">
+            <input id="vChap" type="text" placeholder="Chapter Name" class="w-full bg-gray-50 p-5 rounded-2xl border border-gray-100 font-semibold outline-none">
+            <input id="vUrl" type="text" placeholder="M3U8 Video Link" class="w-full bg-gray-50 p-5 rounded-2xl border border-gray-100 outline-none">
             <div class="grid grid-cols-2 gap-4">
-                <input id="vNotes" type="text" placeholder="Lecture Notes PDF" class="w-full bg-gray-50 p-5 rounded-2xl border border-gray-100">
-                <input id="vChapNotes" type="text" placeholder="One Pager PDF" class="w-full bg-gray-50 p-5 rounded-2xl border border-gray-100">
+                <input id="vNotes" type="text" placeholder="Lecture Notes PDF" class="w-full bg-gray-50 p-5 rounded-2xl border border-gray-100 outline-none">
+                <input id="vChapNotes" type="text" placeholder="DPP / One Pager PDF" class="w-full bg-gray-50 p-5 rounded-2xl border border-gray-100 outline-none">
             </div>
-            <textarea id="vCustomDesc" placeholder="Description" class="w-full bg-gray-50 p-5 rounded-2xl border border-gray-100 h-24"></textarea>
+            <textarea id="vCustomDesc" placeholder="Description" class="w-full bg-gray-50 p-5 rounded-2xl border border-gray-100 h-24 font-medium outline-none"></textarea>
             <input type="hidden" id="editId">
             <div class="flex gap-4 pt-4">
                 <button onclick="closeModals()" class="flex-1 bg-gray-100 py-5 rounded-2xl font-bold uppercase text-xs">Cancel</button>
-                <button onclick="saveVideo()" class="flex-[2] bg-indigo-600 text-white py-5 rounded-2xl font-black uppercase text-xs">Save Content</button>
+                <button onclick="saveVideo()" class="flex-[2] bg-indigo-600 text-white py-5 rounded-2xl font-bold uppercase text-xs">Save Content</button>
             </div>
         </div>
     </div>
@@ -198,7 +212,7 @@
 
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-app.js";
-import { getFirestore, collection, addDoc, onSnapshot, deleteDoc, doc, updateDoc } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-firestore.js";
+import { getFirestore, collection, addDoc, onSnapshot, deleteDoc, doc, updateDoc, writeBatch, query, where, getDocs } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-firestore.js";
 import { getAuth, signInAnonymously, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-auth.js";
 
 const firebaseConfig = {
@@ -232,7 +246,7 @@ function listen() {
         }
         document.getElementById('globalLoader')?.remove();
         render();
-    });
+    }, (err) => { console.error("Listen Error", err); });
 }
 
 const naturalSort = (a, b) => a.localeCompare(b, undefined, { numeric: true, sensitivity: 'base' });
@@ -247,7 +261,7 @@ window.render = () => {
     let platformVids = videoList.filter(v => (v.platform || 'NT') === currentPlatform);
     const uniqueSubs = [...new Set(platformVids.map(v => v.subject))].sort((a,b) => SUBJECT_ORDER.indexOf(a) - SUBJECT_ORDER.indexOf(b));
     
-    subList.innerHTML = uniqueSubs.map(s => `<button onclick="selectSubject('${s}')" class="sub-pill px-6 py-3 rounded-xl text-[10px] font-black uppercase whitespace-nowrap transition-all ${currentSubject === s ? 'active' : ''}">${s}</button>`).join('');
+    subList.innerHTML = uniqueSubs.map(s => `<button onclick="selectSubject('${s}')" class="sub-pill px-6 py-3 rounded-xl text-[10px] font-bold uppercase whitespace-nowrap transition-all ${currentSubject === s ? 'active' : ''}">${s}</button>`).join('');
 
     let subVideos = platformVids.filter(v => v.subject === currentSubject && (v.title.toLowerCase().includes(search) || (v.chapter || '').toLowerCase().includes(search)));
     subVideos.sort((a, b) => naturalSort(a.title, b.title));
@@ -258,13 +272,17 @@ window.render = () => {
     verticalCont.innerHTML = chapters.map((chap, idx) => {
         const chapVideos = subVideos.filter(v => (v.chapter || 'General') === chap);
         const chapOnePager = chapVideos.find(v => v.chapNotes)?.chapNotes;
+        const labelName = (currentPlatform === 'PW') ? 'DPP' : 'Chapter One Pager Notes';
 
         return `
             <div class="chapter-accordion" id="chap-${idx}">
-                <div class="chapter-header" onclick="toggleChapter(${idx})">
+                <div class="chapter-header" onclick="toggleChapter(event, ${idx})">
                     <div class="flex items-center gap-4">
-                        <span class="w-8 h-8 bg-indigo-50 text-indigo-600 rounded-lg flex items-center justify-center font-black text-xs">${idx + 1}</span>
-                        <h3 class="font-black text-lg uppercase italic tracking-tight text-gray-800">${chap}</h3>
+                        <span class="w-8 h-8 bg-indigo-50 text-indigo-600 rounded-lg flex items-center justify-center font-bold text-xs">${idx + 1}</span>
+                        <div class="flex flex-col">
+                           <h3 class="font-bold text-lg uppercase tracking-tight text-gray-800">${chap}</h3>
+                           ${isAdmin ? `<button onclick="openRenameModal('${chap}')" class="mt-1 text-[8px] font-bold text-indigo-500 uppercase bg-indigo-50 px-2 py-1 rounded w-fit">Edit Name</button>` : ''}
+                        </div>
                     </div>
                     <svg class="w-5 h-5 text-gray-400 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M19 9l-7 7-7-7"></path></svg>
                 </div>
@@ -272,10 +290,10 @@ window.render = () => {
                     ${chapOnePager ? `
                         <div class="mb-6 p-4 bg-indigo-600 rounded-2xl flex items-center justify-between text-white shadow-lg shadow-indigo-100">
                             <div>
-                                <p class="text-[9px] font-black uppercase tracking-widest opacity-80">Revision Tool</p>
-                                <h4 class="font-black italic uppercase">Chapter One Pager Notes</h4>
+                                <p class="text-[9px] font-bold uppercase tracking-widest opacity-80">Revision Tool</p>
+                                <h4 class="font-bold uppercase">${labelName}</h4>
                             </div>
-                            <button onclick="window.open('${chapOnePager}')" class="bg-white text-indigo-600 px-4 py-2 rounded-xl text-[9px] font-black uppercase">Open PDF</button>
+                            <button onclick="window.open('${chapOnePager}')" class="bg-white text-indigo-600 px-4 py-2 rounded-xl text-[9px] font-bold uppercase">Open PDF</button>
                         </div>
                     ` : ''}
                     <div class="space-y-3">
@@ -283,12 +301,12 @@ window.render = () => {
                             <div class="resource-card">
                                 <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
                                     <div class="flex-1">
-                                        <h4 class="font-black text-sm uppercase text-gray-800 mb-1">${v.title}</h4>
+                                        <h4 class="font-bold text-sm uppercase text-gray-800 mb-1">${v.title}</h4>
                                         <p class="text-[10px] text-gray-500 font-medium line-clamp-1">${v.customDescription || 'Premium Educational Resource'}</p>
                                     </div>
                                     <div class="flex flex-wrap gap-2">
-                                        <button onclick="playVideo('${v.m3u8Url}')" class="bg-indigo-600 text-white px-5 py-2.5 rounded-lg text-[9px] font-black uppercase">Play Lecture</button>
-                                        ${v.notes ? `<button onclick="window.open('${v.notes}')" class="bg-white border border-gray-200 text-gray-600 px-5 py-2.5 rounded-lg text-[9px] font-black uppercase">Notes</button>` : ''}
+                                        <button onclick="playVideo('${v.m3u8Url}')" class="bg-indigo-600 text-white px-5 py-2.5 rounded-lg text-[9px] font-bold uppercase">Play Lecture</button>
+                                        ${v.notes ? `<button onclick="window.open('${v.notes}')" class="bg-white border border-gray-200 text-gray-600 px-5 py-2.5 rounded-lg text-[9px] font-bold uppercase">Notes</button>` : ''}
                                         ${isAdmin ? `<button onclick="editEntry('${v.id}')" class="bg-indigo-50 text-indigo-600 p-2.5 rounded-lg"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z"></path></svg></button>` : ''}
                                         ${isAdmin ? `<button onclick="deleteMe('${v.id}')" class="bg-red-50 text-red-600 p-2.5 rounded-lg"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"></path></svg></button>` : ''}
                                     </div>
@@ -302,20 +320,57 @@ window.render = () => {
     }).join('');
 };
 
+window.openRenameModal = (chap) => {
+    document.getElementById('oldNameStore').value = chap;
+    document.getElementById('newNameInput').value = chap;
+    showModal('renameModal');
+};
+
+window.processRename = async () => {
+    const oldName = document.getElementById('oldNameStore').value;
+    const newName = document.getElementById('newNameInput').value.trim();
+    
+    if (newName && newName !== oldName) {
+        try {
+            const batch = writeBatch(db);
+            // Fetch ALL matching lectures in current Subject and Chapter
+            const q = query(collection(db, 'artifacts', COLLECTION_ID, 'public', 'data', 'videos'), 
+                            where("chapter", "==", oldName),
+                            where("subject", "==", currentSubject));
+            
+            const snap = await getDocs(q);
+            if (snap.empty) {
+                closeModals();
+                return;
+            }
+
+            snap.forEach((docRef) => {
+                batch.update(docRef.ref, { chapter: newName });
+            });
+            
+            await batch.commit();
+            closeModals();
+        } catch (error) {
+            console.error("Rename Error:", error);
+            alert("Error: Rename failed.");
+        }
+    } else {
+        closeModals();
+    }
+};
+
 window.selectPlatform = (p) => {
     currentPlatform = p;
     document.querySelectorAll('.platform-card').forEach(c => c.classList.remove('active'));
     document.getElementById(`plat-${p}`).classList.add('active');
-    
     let platformVids = videoList.filter(v => (v.platform || 'NT') === p);
     let availableSubs = [...new Set(platformVids.map(v => v.subject))];
-    if (availableSubs.length > 0) {
-        currentSubject = availableSubs[0];
-    }
+    if (availableSubs.length > 0) currentSubject = availableSubs[0];
     render();
 };
 
-window.toggleChapter = (idx) => {
+window.toggleChapter = (event, idx) => {
+    if (event.target.closest('button')) return;
     const el = document.getElementById(`chap-${idx}`);
     const isOpen = el.classList.contains('open');
     document.querySelectorAll('.chapter-accordion').forEach(acc => acc.classList.remove('open'));
@@ -325,7 +380,7 @@ window.toggleChapter = (idx) => {
 window.playVideo = (url) => {
     const video = document.getElementById('hlsVideo');
     showModal('playerModal');
-    if (hlsInstance) { hlsInstance.destroy(); }
+    if (hlsInstance) hlsInstance.destroy();
     if (Hls.isSupported()) {
         hlsInstance = new Hls();
         hlsInstance.loadSource(url);
@@ -339,17 +394,17 @@ window.playVideo = (url) => {
 window.saveVideo = async () => {
     const title = document.getElementById('vTitle').value, 
           sub = document.getElementById('vSub').value, 
-          chap = document.getElementById('vChap').value,
-          plat = document.getElementById('vPlatform').value;
-    const m3u8Url = document.getElementById('vUrl').value, 
+          chap = document.getElementById('vChap').value || 'General',
+          plat = document.getElementById('vPlatform').value,
+          m3u8 = document.getElementById('vUrl').value, 
           notes = document.getElementById('vNotes').value, 
-          editId = document.getElementById('editId').value;
-    const chapNotes = document.getElementById('vChapNotes').value, 
-          customDesc = document.getElementById('vCustomDesc').value;
+          eId = document.getElementById('editId').value,
+          cNotes = document.getElementById('vChapNotes').value, 
+          desc = document.getElementById('vCustomDesc').value;
 
-    if(title && m3u8Url) {
-        const data = { title, subject: sub, chapter: chap || 'General', platform: plat, m3u8Url, notes, chapNotes, customDescription: customDesc, updatedAt: Date.now() };
-        if(editId) await updateDoc(doc(db, 'artifacts', COLLECTION_ID, 'public', 'data', 'videos', editId), data);
+    if(title && m3u8) {
+        const data = { title, subject: sub, chapter: chap, platform: plat, m3u8Url: m3u8, notes, chapNotes: cNotes, customDescription: desc, updatedAt: Date.now() };
+        if(eId) await updateDoc(doc(db, 'artifacts', COLLECTION_ID, 'public', 'data', 'videos', eId), data);
         else await addDoc(collection(db, 'artifacts', COLLECTION_ID, 'public', 'data', 'videos'), { ...data, createdAt: Date.now() });
         closeModals();
     }
@@ -370,7 +425,7 @@ window.editEntry = (id) => {
     showModal('addModal');
 };
 
-window.deleteMe = async (id) => { if(confirm("Content delete karein?")) await deleteDoc(doc(db, 'artifacts', COLLECTION_ID, 'public', 'data', 'videos', id)); };
+window.deleteMe = async (id) => { if(confirm("Delete Content?")) await deleteDoc(doc(db, 'artifacts', COLLECTION_ID, 'public', 'data', 'videos', id)); };
 window.selectSubject = (s) => { currentSubject = s; render(); };
 window.tryLogin = () => { if(document.getElementById('passInput').value === PASS_KEY) { isAdmin = true; closeModals(); render(); } };
 window.showModal = (id) => { 
@@ -380,12 +435,11 @@ window.showModal = (id) => {
     setTimeout(() => o.style.opacity = '1', 50); 
 };
 window.closeModals = () => { 
-    const v = document.getElementById('hlsVideo');
-    if(v) v.pause();
+    const v = document.getElementById('hlsVideo'); if(v) v.pause();
     document.getElementById('modalOverlay').style.opacity = '0'; 
     setTimeout(() => {
         document.getElementById('modalOverlay').classList.add('hidden');
-        ['loginModal','addModal','playerModal'].forEach(m => document.getElementById(m).classList.add('hidden'));
+        ['loginModal','addModal','playerModal', 'renameModal'].forEach(m => document.getElementById(m).classList.add('hidden'));
     }, 300); 
 };
 window.openLoginModal = () => isAdmin ? (isAdmin = false, location.reload()) : showModal('loginModal');
@@ -394,4 +448,4 @@ document.getElementById('searchInput').addEventListener('input', render);
 startup();
 </script>
 </body>
-                </html>
+    </html>
